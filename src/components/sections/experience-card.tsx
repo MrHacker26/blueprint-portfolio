@@ -32,7 +32,7 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
-              {item.start} — {item.end}
+              {item.start}-{item.end}
             </p>
             <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
               {item.company}

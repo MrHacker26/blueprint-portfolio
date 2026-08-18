@@ -7,7 +7,7 @@ export const skills: Skill[] = [
     name: "TypeScript",
     level: 10,
     detail:
-      "Default language for product work — types as design, not ceremony.",
+      "Default language for product work. Types as design, not ceremony.",
   },
   {
     name: "Next.js",
@@ -37,6 +37,6 @@ export const skills: Skill[] = [
     name: "UI engineering",
     level: 8,
     detail:
-      "Spacing, hierarchy, and motion with a job — interfaces that feel designed, not decorated.",
+      "Spacing, hierarchy, and motion with a job. Interfaces that feel designed, not decorated.",
   },
 ];

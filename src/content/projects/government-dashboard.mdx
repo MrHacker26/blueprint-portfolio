@@ -15,19 +15,39 @@ stack:
 
 A constrained delivery: operational surfaces for public-sector work, built to survive audit, incomplete specs, and integrations that do not move on product time.
 
-This write-up stays at the level of problem, constraints, architecture, and scale. No internal names, no datasets, no credentials.
+This write-up stays at the level of problem, constraints, architecture, integrations, and scale. No internal names, no datasets, no credentials.
 
 ## Problem
 
 Operators needed a single place to see work that already lived in several systems. The missing piece was not another database. It was a trustworthy window with explicit boundaries.
 
+## Constraints
+
+- Data stays in the systems that already own it. The dashboard composes; it does not clone.
+- Access is identity-first. A view is a permission, not a URL.
+- Sessions expire on policy, not on convenience.
+- Source systems will be down. The window has to say so without pretending to be complete.
+- Delivery happens under review. Features that cannot be explained in an audit do not ship.
+
 ## Architecture
 
-<Architecture>
-  Identity → edge → service boundary → source systems
-</Architecture>
+<Architecture steps="Identity | Edge | Service boundary | Source systems" />
 
 Reads were composed behind a narrow API. Writes were rarer and louder. The dashboard did not become the system of record.
+
+## Integrations
+
+Peers, not tables. Each source system was treated as unreliable: timeouts, partial payloads, and schema drift were expected.
+
+The integration layer translated those failures into operator language (stale, unavailable, forbidden) instead of a blank chart.
+
+## Scale
+
+Scale here is not only request volume. It is how many teams can change a field without a meeting, how long a page stays honest when a peer is dark, and how clearly the system can say *no* when a request crosses a boundary.
+
+<Callout>
+  Nothing here is a reconstruction of confidential internals. If a detail would identify a system, it was left out.
+</Callout>
 
 ## Tech stack
 
@@ -36,24 +56,14 @@ Reads were composed behind a narrow API. Writes were rarer and louder. The dashb
 - Cloudflare at the edge for routing and cache policy
 - Integrations treated as unreliable peers, not local tables
 
-## Challenges
-
-Constraints arrived before features: who may see what, what may be stored, how long a session may last, and what happens when a source system is down.
-
-The political timeline and the technical timeline were not the same document.
-
 ## Tradeoffs
 
 A warehouse would have made charts easier. It would also have copied data the dashboard was not allowed to own.
 
-Staying a window — compose, don't clone — made features slower and incidents smaller.
+Staying a window (compose, don't clone) made features slower and incidents smaller.
 
 ## Lessons
 
-Scale in this context is not only request volume. It is how many teams can change a field without a meeting, and how clearly the system can say *no* when a request crosses a boundary.
+Constraints are the architecture. Once the boundaries are real, the UI has fewer places to lie.
 
-<Callout>
-  Nothing here is a reconstruction of confidential internals. If a detail would identify a system, it was left out.
-</Callout>
-
-<Gallery />
+<Gallery locked />

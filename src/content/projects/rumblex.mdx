@@ -14,7 +14,7 @@ stack:
 
 ## Overview
 
-RumbleX is a native iOS shell around a cloud gaming session. The browser is not the product — the product is how the phone feels while a game is running somewhere else.
+RumbleX is a native iOS shell around a cloud gaming session. The browser is not the product. The product is how the phone feels while a game is running somewhere else.
 
 ## Problem
 
@@ -24,11 +24,17 @@ The job was to keep the web runtime for the game surface, then give iOS a first-
 
 ## Architecture
 
-<Architecture>
-  iPhone → WKWebView → JavaScript Bridge → Core Haptics
-</Architecture>
+<Architecture steps="iPhone | WKWebView | JavaScript Bridge | Core Haptics" />
 
 The web view owns the stream. Native code owns the hands. A small JavaScript bridge carries events across that boundary without turning the app into a second game engine.
+
+## Haptic bridge
+
+The game cannot call Core Haptics. The web view can only speak JavaScript. The bridge is a translator, not a second engine.
+
+The page emits a typed event: kind of impact, intensity, sharpness. Native code maps that to a haptic pattern and plays it immediately. The round-trip never leaves the device.
+
+If the bridge queues, the rumble arrives after the punch. Unknown patterns fail silent. There is no backlog of buzzes waiting to fire when the player has already moved on.
 
 ## Tech stack
 
@@ -41,7 +47,7 @@ The web view owns the stream. Native code owns the hands. A small JavaScript bri
 
 WKWebView is a document runtime, not a game loop. Timing, gesture ownership, and what happens when the system interrupts the session all had to be explicit.
 
-The haptic path had to stay cheap. If the bridge queues, the phone feels drunk.
+The haptic path had to stay cheap. Latency is felt in the hand before it is seen on a graph.
 
 ## Tradeoffs
 
@@ -51,6 +57,6 @@ A thicker native layer would have felt nicer. It also would have duplicated a st
 
 ## Lessons
 
-Bridges are products. If the contract is sloppy, the UI will be too. Write the event shapes as if another team has to implement them — because the OS is that other team.
+Bridges are products. If the contract is sloppy, the UI will be too. Write the event shapes as if another team has to implement them, because the OS is that other team.
 
 <Gallery />

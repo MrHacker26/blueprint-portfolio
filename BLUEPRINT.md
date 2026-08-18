@@ -1,11 +1,11 @@
-# Blueprint Portfolio — Master Spec
+# Blueprint Portfolio: Master Spec
 
 > Living engineering spec for Tarun Joshi’s personal site.
 > Build **one phase at a time**. Do not skip ahead. Check boxes as work lands.
 
 **North star:** A recruiter or founder spends the first 30 seconds thinking *this person builds products, not just websites*.
 
-Visual language: **Blueprint Engineering** — Apple keynote × Figma file × technical drawing. Not a template. Not cyberpunk. Not a 3D playground.
+Visual language: **Blueprint Engineering**: Apple keynote × Figma file × technical drawing. Not a template. Not cyberpunk. Not a 3D playground.
 
 ---
 
@@ -26,17 +26,17 @@ This file is the contract between you and the agent.
 
 ---
 
-## Current repo (Phase 0 — done)
+## Current repo (Phase 0: done)
 
 Fresh `create-next-app` on **Next.js 16.3.1** (App Router), **React 19**, **Tailwind v4**, **TypeScript**, **Biome**, **Bun**. Geist Sans + Geist Mono already wired.
 
 | Item | Status |
 | --- | --- |
-| `src/app/layout.tsx` | Phase 1 — dark shell, `site.seo`, Geist |
-| `src/app/page.tsx` | Phase 1 — quiet canvas (`site.name` / `site.role`) |
+| `src/app/layout.tsx` | Phase 1: dark shell, `site.seo`, Geist |
+| `src/app/page.tsx` | Phase 1: quiet canvas (`site.name` / `site.role`) |
 | `src/app/globals.css` | Blueprint tokens + grid utilities |
 | shadcn / Framer Motion / Lucide | Installed (button, separator). MDX not yet |
-| Real content (bio, jobs, links, resume) | Placeholders locked — see Content inventory |
+| Real content (bio, jobs, links, resume) | Placeholders locked: see Content inventory |
 
 Path alias: `@/*` → `./src/*`. Keep the `src/` layout. Do not move to a root `app/` folder.
 
@@ -90,7 +90,7 @@ src/
   lib/
     cn.ts
     site.ts                  # identity, socials, SEO, resume, nav, url
-    projects.ts              # MDX loader only — not a second source of copy
+    projects.ts              # MDX loader only: not a second source of copy
   types/
 public/
   resume.pdf                 # add later; button stays disabled until then
@@ -222,7 +222,7 @@ Playground and Git History live on the homepage but stay out of the primary nav.
 
 ## Content inventory
 
-Placeholders are **locked** for v1 build. Swap values in config/content files later — not in components.
+Placeholders are **locked** for v1 build. Swap values in config/content files later: not in components.
 
 ### Identity (`src/lib/site.ts`)
 
@@ -235,8 +235,8 @@ Placeholders are **locked** for v1 build. Swap values in config/content files la
 | Email | `null` (placeholder) |
 | GitHub | `null` (placeholder) |
 | LinkedIn | `null` (placeholder) |
-| Site URL | `null` (placeholder domain — no canonical until real URL exists) |
-| Resume | `available: false` — button **visible**, **disabled**, subtle **Coming Soon** |
+| Site URL | `null` (placeholder domain: no canonical until real URL exists) |
+| Resume | `available: false`: button **visible**, **disabled**, subtle **Coming Soon** |
 | Short about | Placeholder 2–3 sentences in `site.about`. Honest, generic, no fake bio claims. Refine later in `site.ts` only. |
 
 ### Live status pills (hero)
@@ -271,7 +271,7 @@ Source: `src/content/projects/*.mdx` (frontmatter + body). v1 is these three onl
 | `refridz` | Refridz | Food expiry tracker | OCR pipeline, AI fallback, offline storage, reminder system, engineering decisions |
 | `government-dashboard` | Government Dashboard | Public-sector systems at scale | Problem, constraints, architecture, integrations, scale. **No confidential code, datasets, or screenshots of real PII.** |
 
-### Skills (capability board — not logos)
+### Skills (capability board: not logos)
 
 Source: `src/content/skills.ts`. Suggested bars (0–10). Adjust in that file only.
 
@@ -387,7 +387,7 @@ Experience and skills live in `src/content/*.ts`. Projects live in MDX + frontma
 
 ## Phases
 
-### Phase 1 — Foundation
+### Phase 1: Foundation
 
 **Goal:** The empty page already feels like the product. Tokens, folders, utilities, shadcn, motion lib, blueprint grid. No marketing sections yet.
 
@@ -401,15 +401,15 @@ Install (and nothing else):
 
 Build:
 
-- [x] `src/lib/cn.ts` — `cn()` helper
-- [x] `src/lib/site.ts` — full identity config (see shape above). Metadata in layout reads `site.seo`, not string literals
-- [x] `src/content/experience.ts` — two generic cards (even if unused until Phase 4)
-- [x] `src/content/skills.ts` — capability rows (even if unused until Phase 4)
-- [x] `src/content/history.ts` — year entries (even if unused until Phase 7)
+- [x] `src/lib/cn.ts`: `cn()` helper
+- [x] `src/lib/site.ts`: full identity config (see shape above). Metadata in layout reads `site.seo`, not string literals
+- [x] `src/content/experience.ts`: two generic cards (even if unused until Phase 4)
+- [x] `src/content/skills.ts`: capability rows (even if unused until Phase 4)
+- [x] `src/content/history.ts`: year entries (even if unused until Phase 7)
 - [x] Design tokens in `globals.css` (colors, fonts, easing, grid utilities)
 - [x] Dark `html` class, no light flash
-- [x] `src/components/animations/blueprint-grid.tsx` — static CSS grid + one radial glow
-- [x] `src/components/layout/site-shell.tsx` — skip link + `main`
+- [x] `src/components/animations/blueprint-grid.tsx`: static CSS grid + one radial glow
+- [x] `src/components/layout/site-shell.tsx`: skip link + `main`
 - [x] Root layout: fonts, `site.seo`, shell, grid
 - [x] Replace starter `page.tsx` with a quiet canvas (`site.name` + `site.role` only, no default Next template)
 - [x] Folder stubs: `components/{layout,sections,ui,animations}`, `content/projects`, `hooks`
@@ -420,21 +420,21 @@ Build:
 
 ---
 
-### Phase 2 — Chrome
+### Phase 2: Chrome
 
 **Goal:** The site feels like an OS chrome: floating glass nav, mobile drawer, scroll spy, build-style progress.
 
 Build:
 
-- [x] `src/components/layout/floating-nav.tsx` — glass, desktop links, mobile drawer
+- [x] `src/components/layout/floating-nav.tsx`: glass, desktop links, mobile drawer
 - [x] Active section indicator (Intersection Observer)
 - [x] Smooth scroll to `#` ids (`scroll-mt` for sticky offset)
-- [x] `src/components/layout/build-progress.tsx` — scroll progress as build stages:
+- [x] `src/components/layout/build-progress.tsx`: scroll progress as build stages:
   - 0–20% `Compiling...`
   - 20–50% `Linking...`
   - 50–80% `Optimizing...`
   - 80–100% `Build Complete.`
-- [x] `src/components/layout/footer.tsx` — mono meta, year, name
+- [x] `src/components/layout/footer.tsx`: mono meta, year, name
 - [x] Homepage skeleton sections with ids and `min-h` spacers so spy/progress can be tested
 - [x] shadcn: `sheet` (or a small custom drawer if lighter)
 
@@ -444,7 +444,7 @@ Build:
 
 ---
 
-### Phase 3 — Hero
+### Phase 3: Hero
 
 **Goal:** First 30 seconds. This is the most important surface on the site.
 
@@ -460,7 +460,7 @@ Left:
 Right:
 
 - [x] Blueprint card (HTML/CSS). Animated technical lines, measurement ticks, moving connection paths.
-- [x] No SVG text. Labels like `WKWebView` / `bridge` / `core` are HTML if they exist at all — keep them optional and sparse.
+- [x] No SVG text. Labels like `WKWebView` / `bridge` / `core` are HTML if they exist at all: keep them optional and sparse.
 - [x] Card should feel like a Figma frame + calipers, not a robot face.
 
 Background (hero only, still subtle):
@@ -474,16 +474,16 @@ Background (hero only, still subtle):
 
 ---
 
-### Phase 4 — About, Experience, Skills
+### Phase 4: About, Experience, Skills
 
 **Goal:** Substance under the hero. Still no project case studies.
 
-- [x] About — short editorial block, not a resume dump
-- [x] Experience — stacked engineering cards (not a vertical timeline)
+- [x] About: short editorial block, not a resume dump
+- [x] Experience: stacked engineering cards (not a vertical timeline)
   - Hover: lift + border
   - Click/Enter: expand notes (height animation, `aria-expanded`)
   - Metrics as mono figures
-- [x] Skills — capability board with bar meters
+- [x] Skills: capability board with bar meters
   - Hover/focus expands detail
   - Keyboard: each row is a focusable button or disclosure
 
@@ -495,15 +495,15 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 ---
 
-### Phase 5 — Project system
+### Phase 5: Project system
 
 **Goal:** Routing + listing + MDX pipeline. Case study *bodies* can still be thin.
 
-- [x] `@next/mdx` **or** `next-mdx-remote` + `gray-matter` — pick the smaller RSC-friendly option during implement
+- [x] `@next/mdx` **or** `next-mdx-remote` + `gray-matter`: pick the smaller RSC-friendly option during implement
 - [x] `src/content/projects/{rumblex,refridz,government-dashboard}.mdx` with frontmatter
-- [x] `src/lib/projects.ts` — list + getBySlug from MDX frontmatter only, static params
+- [x] `src/lib/projects.ts`: list + getBySlug from MDX frontmatter only, static params
 - [x] Homepage projects section: 3 case-study cards (image placeholder, tagline, stack, link)
-- [x] `src/app/projects/[slug]/page.tsx` — shared layout chrome:
+- [x] `src/app/projects/[slug]/page.tsx`: shared layout chrome:
   - Hero
   - Overview
   - Problem
@@ -522,33 +522,33 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 ---
 
-### Phase 6 — Case study depth
+### Phase 6: Case study depth
 
 **Goal:** Each project feels like an engineering post, not a Dribbble shot.
 
-- [ ] **RumbleX** — div diagram: iPhone → WKWebView → JavaScript Bridge → Core Haptics. Haptic bridge written in plain language.
-- [ ] **Refridz** — OCR → parse → AI fallback → local store → reminders. Call out offline + failure modes.
-- [ ] **Government Dashboard** — problem, constraints, architecture, integrations, scale. Zero confidential artifacts.
-- [ ] Reusable `src/components/projects/flow-diagram.tsx` (nodes + connectors, HTML/CSS)
-- [ ] Gallery slots: framed placeholders with aspect ratio, not broken images
-- [ ] Beautiful empty/private state if `status === "private"`
+- [x] **RumbleX**: div diagram: iPhone → WKWebView → JavaScript Bridge → Core Haptics. Haptic bridge written in plain language.
+- [x] **Refridz**: OCR → parse → AI fallback → local store → reminders. Call out offline + failure modes.
+- [x] **Government Dashboard**: problem, constraints, architecture, integrations, scale. Zero confidential artifacts.
+- [x] Reusable `src/components/projects/flow-diagram.tsx` (nodes + connectors, HTML/CSS)
+- [x] Gallery slots: framed placeholders with aspect ratio, not broken images
+- [x] Beautiful empty/private state if `status === "private"`
 
 **Done when:** a founder can understand *how it was built* without reading code.
 
 ---
 
-### Phase 7 — Playground, history, contact
+### Phase 7: Playground, history, contact
 
 **Goal:** The “this is a product” lower half.
 
-- [ ] Engineering Playground — interactive architecture cards (HTML/CSS)
+- [ ] Engineering Playground: interactive architecture cards (HTML/CSS)
   - OCR flow
   - API flow
   - Worker execution
   - Auth flow
   - Click/keyboard steps through stages; one active node at a time
-- [ ] Git History — year + entry, expand on click, not a commit graph gimmick
-- [ ] Contact — glass card, GitHub, LinkedIn, Email from `site`
+- [ ] Git History: year + entry, expand on click, not a commit graph gimmick
+- [ ] Contact: glass card, GitHub, LinkedIn, Email from `site`
   - If a social/email is `null`: muted placeholder chip, not a fake link
   - Copy-to-clipboard on email only when `site.email` is set
   - `aria-live` confirmation: `Copied`
@@ -558,7 +558,7 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 ---
 
-### Phase 8 — Command palette + easter eggs
+### Phase 8: Command palette + easter eggs
 
 **Goal:** Hidden craft. Tasteful, not meme-heavy.
 
@@ -566,14 +566,14 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
   - Search projects, skills, resume, sections
   - Trap focus, Esc closes, overlay
 - [ ] Konami code → `/lab`
-- [ ] `/lab` — hidden developer page: stack, build stages, maybe a tiny terminal log of this site’s own architecture. `robots noindex`. Not linked in nav.
+- [ ] `/lab`: hidden developer page: stack, build stages, maybe a tiny terminal log of this site’s own architecture. `robots noindex`. Not linked in nav.
 - [ ] One extra quiet egg optional (example: clicking the blueprint card measurement tick 5× reveals a mono tooltip). Skip if it hurts taste.
 
-**Done when:** palette is the fastest way to move, and `/lab` is a grin — not a second portfolio.
+**Done when:** palette is the fastest way to move, and `/lab` is a grin: not a second portfolio.
 
 ---
 
-### Phase 9 — SEO, a11y, performance, polish
+### Phase 9: SEO, a11y, performance, polish
 
 **Goal:** Production. The $20k feel is in the last 10%.
 
@@ -582,14 +582,14 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 - [ ] Open Graph + Twitter cards (`public/og.png`)
 - [ ] JSON-LD `Person` schema from `site` (omit empty socials)
 - [ ] `sitemap.ts` + `robots.ts`
-- [ ] `loading.tsx` — premium blueprint loader (one pulse, no spinner farm)
-- [ ] `not-found.tsx` — on-brand
+- [ ] `loading.tsx`: premium blueprint loader (one pulse, no spinner farm)
+- [ ] `not-found.tsx`: on-brand
 - [ ] Page transitions: small fade on project routes only
 - [ ] Reduced-motion audit across all client components
 - [ ] Keyboard pass: nav, drawers, disclosures, palette, playground
 - [ ] Bundle check: drop unused client islands; dynamic import palette
 - [ ] Lighthouse 95+ on homepage and one case study (local production build)
-- [ ] When real resume/socials/domain exist: update `site.ts` + add `public/resume.pdf` only — flip `resume.available` to `true`
+- [ ] When real resume/socials/domain exist: update `site.ts` + add `public/resume.pdf` only: flip `resume.available` to `true`
 - [ ] Delete leftover `public/next.svg` starter assets if unused
 
 **Done when:** the Final Polish Checklist below is all checked.
@@ -656,9 +656,9 @@ Update src/lib/site.ts only (and public/resume.pdf if attaching). Do not restyle
 
 Answered 18 Aug 2026. Do not re-ask.
 
-1. **Socials** — GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
-2. **Resume** — button visible, disabled, subtle Coming Soon until PDF exists.
-3. **Experience** — generic “Government Systems / Startup” only. No confidential names or exact internal metrics.
-4. **Projects** — RumbleX, Refridz, Government Dashboard. No extras in v1.
-5. **Domain** — `site.url = null` until a real canonical exists. No fake OG/canonical domain.
-6. **Architecture** — content-first. Identity/SEO in `site.ts`. Experience/skills/history in `content/`. Case studies in MDX. Components consume data; they do not store it.
+1. **Socials**: GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
+2. **Resume**: button visible, disabled, subtle Coming Soon until PDF exists.
+3. **Experience**: generic “Government Systems / Startup” only. No confidential names or exact internal metrics.
+4. **Projects**: RumbleX, Refridz, Government Dashboard. No extras in v1.
+5. **Domain**: `site.url = null` until a real canonical exists. No fake OG/canonical domain.
+6. **Architecture**: content-first. Identity/SEO in `site.ts`. Experience/skills/history in `content/`. Case studies in MDX. Components consume data; they do not store it.

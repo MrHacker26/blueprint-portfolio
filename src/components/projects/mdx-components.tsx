@@ -1,4 +1,9 @@
 import type { ComponentProps, ReactNode } from "react";
+import { CaptureFrame } from "@/components/projects/capture-frame";
+import {
+  FlowDiagram,
+  parseFlowSteps,
+} from "@/components/projects/flow-diagram";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -95,20 +100,54 @@ export function Callout({ children }: { children: ReactNode }) {
   );
 }
 
-export function Architecture({ children }: { children?: ReactNode }) {
+export function Architecture({
+  steps,
+  children,
+}: {
+  steps?: string;
+  children?: ReactNode;
+}) {
+  const nodes = parseFlowSteps(steps);
+
   return (
     <section className="border-line bg-bg-elevated/40 mt-10 rounded-lg border p-5">
       <p className="font-mono text-[10px] tracking-[0.18em] text-text-faint uppercase">
         {site.projects.architectureLabel}
       </p>
-      <div className="mt-4 font-mono text-sm leading-relaxed text-text-muted">
-        {children ?? site.projects.architecturePending}
+      <div className="mt-5">
+        {nodes.length > 0 ? (
+          <FlowDiagram nodes={nodes} />
+        ) : (
+          <p className="font-mono text-sm text-text-muted">
+            {children ?? site.projects.architecturePending}
+          </p>
+        )}
       </div>
     </section>
   );
 }
 
-export function Gallery({ count = 3 }: { count?: number }) {
+export function Gallery({
+  count = 3,
+  locked = false,
+}: {
+  count?: number;
+  locked?: boolean;
+}) {
+  if (locked) {
+    return (
+      <section className="mt-12">
+        <p className="font-mono text-[10px] tracking-[0.18em] text-text-faint uppercase">
+          {site.projects.galleryLabel}
+        </p>
+        <CaptureFrame locked className="mt-4 aspect-[21/9] w-full" />
+        <p className="mt-3 font-mono text-[11px] tracking-wide text-text-faint">
+          {site.projects.privateGallery}
+        </p>
+      </section>
+    );
+  }
+
   const frames = Array.from({ length: count }, (_, index) => index);
 
   return (
@@ -118,14 +157,7 @@ export function Gallery({ count = 3 }: { count?: number }) {
       </p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {frames.map((frame) => (
-          <div
-            key={frame}
-            className="border-line bg-bg-elevated/40 flex aspect-video items-center justify-center rounded-md border"
-          >
-            <span className="font-mono text-[11px] tracking-wide text-text-faint">
-              {site.projects.capturePending}
-            </span>
-          </div>
+          <CaptureFrame key={frame} className="aspect-video w-full" />
         ))}
       </div>
     </section>

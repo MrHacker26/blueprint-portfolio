@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  CaptureFrame,
+  PrivateRecord,
+} from "@/components/projects/capture-frame";
+import {
   getProjectBySlug,
   getProjectMeta,
   getProjectSlugs,
@@ -65,16 +69,11 @@ export default async function ProjectPage({
       <p className="mt-5 text-lg leading-relaxed text-text-muted">
         {meta.tagline}
       </p>
-      {meta.status === "private" ? (
-        <p className="border-line mt-6 rounded-md border px-4 py-3 font-mono text-[12px] leading-relaxed text-text-faint">
-          {site.projects.privateNote}
-        </p>
-      ) : null}
-      <figure className="border-line bg-bg-elevated/40 mt-10 flex aspect-[16/9] items-center justify-center rounded-lg border">
-        <figcaption className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
-          {site.projects.capturePending}
-        </figcaption>
-      </figure>
+      {meta.status === "private" ? <PrivateRecord /> : null}
+      <CaptureFrame
+        locked={meta.status === "private"}
+        className="mt-10 aspect-[16/9] w-full"
+      />
       <ul className="mt-6 flex flex-wrap gap-2">
         {meta.stack.map((item) => (
           <li

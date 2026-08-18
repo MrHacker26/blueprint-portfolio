@@ -22,11 +22,18 @@ People do not want a pantry CMS. They will not type every SKU. The capture path 
 
 ## Architecture
 
-<Architecture>
-  Capture → OCR → parse → AI fallback → local store → reminders
-</Architecture>
+<Architecture steps="Capture | OCR | Parse | AI fallback | Local store | Reminders" />
 
 OCR is the default. A model is the fallback when the parse is junk. The source of truth stays on device so the app still works when the network does not.
+
+## Failure modes
+
+- OCR miss → try the AI fallback. If that is junk too, ask for a date instead of inventing one.
+- No network → inventory and reminders still run from local store. Sync is optional, never required for the core loop.
+- Ambiguous parse → do not write a wrong expiry. A missing date is safer than a confident lie.
+- Permission or camera failure → the rest of the inventory remains usable.
+
+Offline is not a feature flag. It is the kitchen.
 
 ## Tech stack
 
@@ -39,13 +46,13 @@ OCR is the default. A model is the fallback when the parse is junk. The source o
 
 Labels lie. Dates are written in too many formats. OCR confidence is not the same as a correct expiry.
 
-Offline is not a feature flag — it is the kitchen. Sync, if it exists later, cannot be required for the core loop.
+The product has to fail in a way a person can finish the job with a thumb, not a support ticket.
 
 ## Tradeoffs
 
 A fully local parse is cheaper and private. It fails on messy labels. A fully hosted parse is smarter and slower, and it fails in the cellar.
 
-The split — OCR, then AI only on miss — keeps the common case fast.
+The split (OCR, then AI only on miss) keeps the common case fast and the failure case honest.
 
 ## Lessons
 

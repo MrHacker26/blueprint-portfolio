@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaptureFrame } from "@/components/projects/capture-frame";
 import { site } from "@/lib/site";
 import type { ProjectFrontmatter } from "@/types/content";
 
@@ -9,14 +10,10 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="border-line bg-bg-elevated/40 relative flex flex-col rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-[border-color,transform] duration-base ease-out-premium motion-safe:hover:-translate-y-1 hover:border-signal/30">
-      <div
-        className="border-line flex aspect-[16/10] items-center justify-center border-b bg-bg/40"
-        aria-hidden={project.heroImage ? undefined : true}
-      >
-        <span className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
-          {site.projects.capturePending}
-        </span>
-      </div>
+      <CaptureFrame
+        locked={project.status === "private"}
+        className="aspect-[16/10] w-full rounded-none rounded-t-lg border-0 border-b"
+      />
       <div className="flex flex-1 flex-col px-5 py-5">
         <p className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
           {project.year}

@@ -19,7 +19,7 @@ export const experience: Experience[] = [
     notes: [
       "Constraints shaped the architecture more than feature lists.",
       "Integrations crossed systems without sharing confidential internals.",
-      "Scale meant availability, auditability, and clear ownership — not dashboards of secrets.",
+      "Scale meant availability, auditability, and clear ownership. Not dashboards of secrets.",
     ],
   },
   {

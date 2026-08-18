@@ -5,7 +5,7 @@ export const site = {
   tagline:
     "Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure.",
   about:
-    "I design and ship full-stack products across TypeScript systems, React Native clients, and Cloudflare infrastructure. This site is a working notebook of architecture, tradeoffs, and craft — not a template.",
+    "I design and ship full-stack products across TypeScript systems, React Native clients, and Cloudflare infrastructure. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
   url: null as string | null,
   email: null as string | null,
   socials: {
@@ -53,7 +53,7 @@ export const site = {
     ],
   },
   seo: {
-    title: "Tarun Joshi — Senior Full Stack Engineer",
+    title: "Tarun Joshi, Senior Full Stack Engineer",
     description:
       "Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure.",
     ogImage: "/og.png",
@@ -70,6 +70,7 @@ export const site = {
     experienceNotes: "Engineering notes",
     skillLevel: "Proficiency",
     projectHero: "Project capture",
+    architectureFlow: "Architecture flow",
   },
   projectStatus: {
     shipped: "Shipped",
@@ -78,6 +79,8 @@ export const site = {
   },
   projects: {
     capturePending: "Capture pending",
+    privateCapture: "Not pictured",
+    privateGallery: "Captures stay off the record.",
     architectureLabel: "Architecture",
     architecturePending: "Diagram in the next pass.",
     privateNote:
