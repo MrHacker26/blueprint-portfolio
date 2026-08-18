@@ -65,6 +65,8 @@ export const site = {
     buildProgress: "Build progress",
     liveStatus: "Live status",
     blueprintCard: "Blueprint frame",
+    experienceNotes: "Engineering notes",
+    skillLevel: "Proficiency",
   },
 } as const;
 
@@ -74,6 +76,11 @@ export const navIds = navItems.map((item) => item.id);
 
 export function sectionHref(id: string) {
   return `#${id}`;
+}
+
+export function sectionLabel(id: (typeof site.sections)[number]["id"]) {
+  const section = site.sections.find((item) => item.id === id);
+  return section?.label ?? id;
 }
 
 export function getBuildStage(progress: number) {

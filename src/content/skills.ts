@@ -1,5 +1,7 @@
 import type { Skill } from "@/types/content";
 
+export const MAX_SKILL_LEVEL = 10;
+
 export const skills: Skill[] = [
   {
     name: "TypeScript",

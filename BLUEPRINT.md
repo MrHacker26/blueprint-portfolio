@@ -478,12 +478,12 @@ Background (hero only, still subtle):
 
 **Goal:** Substance under the hero. Still no project case studies.
 
-- [ ] About — short editorial block, not a resume dump
-- [ ] Experience — stacked engineering cards (not a vertical timeline)
+- [x] About — short editorial block, not a resume dump
+- [x] Experience — stacked engineering cards (not a vertical timeline)
   - Hover: lift + border
   - Click/Enter: expand notes (height animation, `aria-expanded`)
   - Metrics as mono figures
-- [ ] Skills — capability board with bar meters
+- [x] Skills — capability board with bar meters
   - Hover/focus expands detail
   - Keyboard: each row is a focusable button or disclosure
 
