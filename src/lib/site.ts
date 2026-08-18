@@ -72,6 +72,8 @@ export const site = {
     projectHero: "Project capture",
     architectureFlow: "Architecture flow",
     copyEmail: "Copy email",
+    commandPalette: "Command palette",
+    openCommand: "Open command palette",
   },
   projectStatus: {
     shipped: "Shipped",
@@ -99,6 +101,17 @@ export const site = {
   },
   playground: {
     hint: "Focus or click a node. One stage at a time.",
+  },
+  command: {
+    placeholder: "Search the system...",
+    empty: "No match.",
+    hotkey: "⌘K",
+    groups: {
+      navigate: "Navigate",
+      projects: "Projects",
+      skills: "Skills",
+      resume: "Resume",
+    },
   },
 } as const;
 

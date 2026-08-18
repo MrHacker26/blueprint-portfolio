@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 import { BlueprintGrid } from "@/components/animations/blueprint-grid";
 import { BuildProgress } from "@/components/layout/build-progress";
+import { CommandPaletteHost } from "@/components/layout/command-palette-host";
 import { FloatingNav } from "@/components/layout/floating-nav";
 import { Footer } from "@/components/layout/footer";
+import { KonamiLab } from "@/components/layout/konami-lab";
 import { site } from "@/lib/site";
 
 type SiteShellProps = {
@@ -22,6 +24,8 @@ export function SiteShell({ children }: SiteShellProps) {
       <div className="relative z-10 flex min-h-full flex-col">
         <BuildProgress />
         <FloatingNav />
+        <CommandPaletteHost />
+        <KonamiLab />
         <main id="main" className="flex flex-1 flex-col">
           {children}
         </main>

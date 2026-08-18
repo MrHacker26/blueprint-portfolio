@@ -562,11 +562,11 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** Hidden craft. Tasteful, not meme-heavy.
 
-- [ ] `Cmd/Ctrl + K` command palette (shadcn `command` / `cmdk` is allowed here)
+- [x] `Cmd/Ctrl + K` command palette (shadcn `command` / `cmdk` is allowed here)
   - Search projects, skills, resume, sections
   - Trap focus, Esc closes, overlay
-- [ ] Konami code → `/lab`
-- [ ] `/lab`: hidden developer page: stack, build stages, maybe a tiny terminal log of this site’s own architecture. `robots noindex`. Not linked in nav.
+- [x] Konami code → `/lab`
+- [x] `/lab`: hidden developer page: stack, build stages, maybe a tiny terminal log of this site’s own architecture. `robots noindex`. Not linked in nav.
 - [ ] One extra quiet egg optional (example: clicking the blueprint card measurement tick 5× reveals a mono tooltip). Skip if it hurts taste.
 
 **Done when:** palette is the fastest way to move, and `/lab` is a grin: not a second portfolio.
