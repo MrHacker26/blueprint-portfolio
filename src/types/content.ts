@@ -27,3 +27,16 @@ export type HistoryEntry = {
   title: string;
   detail: string;
 };
+
+export type ProjectStatus = "shipped" | "in-progress" | "private";
+
+export type ProjectFrontmatter = {
+  slug: string;
+  title: string;
+  tagline: string;
+  year: string;
+  status: ProjectStatus;
+  stack: string[];
+  role: string;
+  heroImage?: string;
+};

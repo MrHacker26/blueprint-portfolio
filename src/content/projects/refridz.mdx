@@ -1,0 +1,54 @@
+---
+slug: refridz
+title: Refridz
+tagline: Food expiry tracker.
+year: "2025"
+status: shipped
+role: Engineer
+stack:
+  - TypeScript
+  - React Native
+  - OCR
+  - Cloudflare
+---
+
+## Overview
+
+Refridz is a small appliance for a boring problem: food that expires in the dark. Capture a label, store a date, get a reminder before the bin does.
+
+## Problem
+
+People do not want a pantry CMS. They will not type every SKU. The capture path has to survive bad lighting, half-cut labels, and a phone that is offline in a basement kitchen.
+
+## Architecture
+
+<Architecture>
+  Capture → OCR → parse → AI fallback → local store → reminders
+</Architecture>
+
+OCR is the default. A model is the fallback when the parse is junk. The source of truth stays on device so the app still works when the network does not.
+
+## Tech stack
+
+- React Native client
+- On-device storage for inventory
+- OCR first, with a hosted fallback only when confidence is low
+- Reminder scheduling that does not depend on a live session
+
+## Challenges
+
+Labels lie. Dates are written in too many formats. OCR confidence is not the same as a correct expiry.
+
+Offline is not a feature flag — it is the kitchen. Sync, if it exists later, cannot be required for the core loop.
+
+## Tradeoffs
+
+A fully local parse is cheaper and private. It fails on messy labels. A fully hosted parse is smarter and slower, and it fails in the cellar.
+
+The split — OCR, then AI only on miss — keeps the common case fast.
+
+## Lessons
+
+Failure modes are the product. Design the fallback before the happy path, or the happy path is the only path that works in the demo.
+
+<Gallery />

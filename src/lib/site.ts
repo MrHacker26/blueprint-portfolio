@@ -21,6 +21,8 @@ export const site = {
   statusPills: ["Shipping Products", "Next.js 16", "Bun", "Cloudflare"],
   cta: {
     viewProjects: "View Projects",
+    readCaseStudy: "Case study",
+    backToProjects: "All projects",
   },
   hero: {
     frame: "hero.blueprint",
@@ -67,6 +69,20 @@ export const site = {
     blueprintCard: "Blueprint frame",
     experienceNotes: "Engineering notes",
     skillLevel: "Proficiency",
+    projectHero: "Project capture",
+  },
+  projectStatus: {
+    shipped: "Shipped",
+    "in-progress": "In progress",
+    private: "Private",
+  },
+  projects: {
+    capturePending: "Capture pending",
+    architectureLabel: "Architecture",
+    architecturePending: "Diagram in the next pass.",
+    privateNote:
+      "Sanitized write-up. Internal systems, datasets, and credentials stay off this page.",
+    galleryLabel: "Gallery",
   },
 } as const;
 
@@ -75,7 +91,7 @@ export const navItems = site.sections.filter((section) => section.inNav);
 export const navIds = navItems.map((item) => item.id);
 
 export function sectionHref(id: string) {
-  return `#${id}`;
+  return `/#${id}`;
 }
 
 export function sectionLabel(id: (typeof site.sections)[number]["id"]) {

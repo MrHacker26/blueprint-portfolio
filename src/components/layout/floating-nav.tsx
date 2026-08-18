@@ -26,7 +26,7 @@ export function FloatingNav() {
     <header className="pointer-events-none fixed top-4 right-0 left-0 z-40 flex justify-center px-4">
       <div className="border-line bg-bg/70 pointer-events-auto flex h-12 w-full max-w-5xl items-center gap-3 rounded-full border px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:px-4">
         <a
-          href="#main"
+          href="/"
           className="shrink-0 truncate font-sans text-sm font-medium tracking-tight text-foreground"
         >
           {site.name}

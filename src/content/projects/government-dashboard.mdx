@@ -1,0 +1,59 @@
+---
+slug: government-dashboard
+title: Government Dashboard
+tagline: Public-sector systems at scale.
+year: "2024"
+status: private
+role: Senior Full Stack Engineer
+stack:
+  - TypeScript
+  - Next.js
+  - Cloudflare
+---
+
+## Overview
+
+A constrained delivery: operational surfaces for public-sector work, built to survive audit, incomplete specs, and integrations that do not move on product time.
+
+This write-up stays at the level of problem, constraints, architecture, and scale. No internal names, no datasets, no credentials.
+
+## Problem
+
+Operators needed a single place to see work that already lived in several systems. The missing piece was not another database. It was a trustworthy window with explicit boundaries.
+
+## Architecture
+
+<Architecture>
+  Identity → edge → service boundary → source systems
+</Architecture>
+
+Reads were composed behind a narrow API. Writes were rarer and louder. The dashboard did not become the system of record.
+
+## Tech stack
+
+- TypeScript across the client and the service edge
+- Server-rendered surfaces where the page could be a document
+- Cloudflare at the edge for routing and cache policy
+- Integrations treated as unreliable peers, not local tables
+
+## Challenges
+
+Constraints arrived before features: who may see what, what may be stored, how long a session may last, and what happens when a source system is down.
+
+The political timeline and the technical timeline were not the same document.
+
+## Tradeoffs
+
+A warehouse would have made charts easier. It would also have copied data the dashboard was not allowed to own.
+
+Staying a window — compose, don't clone — made features slower and incidents smaller.
+
+## Lessons
+
+Scale in this context is not only request volume. It is how many teams can change a field without a meeting, and how clearly the system can say *no* when a request crosses a boundary.
+
+<Callout>
+  Nothing here is a reconstruction of confidential internals. If a detail would identify a system, it was left out.
+</Callout>
+
+<Gallery />

@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/sections/about";
 import { ExperienceSection } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
 import { HomeSection } from "@/components/sections/home-section";
+import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { sectionLabel } from "@/lib/site";
 
@@ -11,7 +12,7 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <ExperienceSection />
-      <HomeSection id="projects" label={sectionLabel("projects")} />
+      <ProjectsSection />
       <SkillsSection />
       <HomeSection id="playground" label={sectionLabel("playground")} />
       <HomeSection id="history" label={sectionLabel("history")} />

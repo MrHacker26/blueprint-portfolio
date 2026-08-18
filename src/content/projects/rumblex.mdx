@@ -1,0 +1,56 @@
+---
+slug: rumblex
+title: RumbleX
+tagline: Native iOS cloud gaming browser.
+year: "2026"
+status: shipped
+role: Engineer
+stack:
+  - Swift
+  - WKWebView
+  - TypeScript
+  - Core Haptics
+---
+
+## Overview
+
+RumbleX is a native iOS shell around a cloud gaming session. The browser is not the product — the product is how the phone feels while a game is running somewhere else.
+
+## Problem
+
+Cloud gaming in a generic web view is late. Touch is mute. Haptics are an afterthought. The session looks interactive and plays like a video.
+
+The job was to keep the web runtime for the game surface, then give iOS a first-class path for input and feedback.
+
+## Architecture
+
+<Architecture>
+  iPhone → WKWebView → JavaScript Bridge → Core Haptics
+</Architecture>
+
+The web view owns the stream. Native code owns the hands. A small JavaScript bridge carries events across that boundary without turning the app into a second game engine.
+
+## Tech stack
+
+- Native iOS wrapper around `WKWebView`
+- A typed JavaScript bridge for session events
+- Core Haptics for impact, not decoration
+- TypeScript on the web side of the bridge
+
+## Challenges
+
+WKWebView is a document runtime, not a game loop. Timing, gesture ownership, and what happens when the system interrupts the session all had to be explicit.
+
+The haptic path had to stay cheap. If the bridge queues, the phone feels drunk.
+
+## Tradeoffs
+
+Keeping the game in a web view was faster than rewriting a native renderer. The cost is every millisecond you add between a tap and a rumble.
+
+A thicker native layer would have felt nicer. It also would have duplicated a stack that already existed on the web.
+
+## Lessons
+
+Bridges are products. If the contract is sloppy, the UI will be too. Write the event shapes as if another team has to implement them — because the OS is that other team.
+
+<Gallery />

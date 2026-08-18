@@ -499,11 +499,11 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** Routing + listing + MDX pipeline. Case study *bodies* can still be thin.
 
-- [ ] `@next/mdx` **or** `next-mdx-remote` + `gray-matter` — pick the smaller RSC-friendly option during implement
-- [ ] `src/content/projects/{rumblex,refridz,government-dashboard}.mdx` with frontmatter
-- [ ] `src/lib/projects.ts` — list + getBySlug from MDX frontmatter only, static params
-- [ ] Homepage projects section: 3 case-study cards (image placeholder, tagline, stack, link)
-- [ ] `src/app/projects/[slug]/page.tsx` — shared layout chrome:
+- [x] `@next/mdx` **or** `next-mdx-remote` + `gray-matter` — pick the smaller RSC-friendly option during implement
+- [x] `src/content/projects/{rumblex,refridz,government-dashboard}.mdx` with frontmatter
+- [x] `src/lib/projects.ts` — list + getBySlug from MDX frontmatter only, static params
+- [x] Homepage projects section: 3 case-study cards (image placeholder, tagline, stack, link)
+- [x] `src/app/projects/[slug]/page.tsx` — shared layout chrome:
   - Hero
   - Overview
   - Problem
@@ -513,8 +513,8 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
   - Tradeoffs
   - Lessons
   - Gallery placeholders
-- [ ] MDX components map (headings, callouts, `Architecture` wrapper)
-- [ ] `generateStaticParams` + `generateMetadata` per slug
+- [x] MDX components map (headings, callouts, `Architecture` wrapper)
+- [x] `generateStaticParams` + `generateMetadata` per slug
 
 **Done when:** `/projects/rumblex` (and the other two) render from MDX with the shared template. Homepage cards link correctly.
 
