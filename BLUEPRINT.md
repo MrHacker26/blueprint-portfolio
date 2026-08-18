@@ -32,10 +32,10 @@ Fresh `create-next-app` on **Next.js 16.3.1** (App Router), **React 19**, **Tail
 
 | Item | Status |
 | --- | --- |
-| `src/app/layout.tsx` | Default scaffold |
-| `src/app/page.tsx` | Default Next.js starter |
-| `src/app/globals.css` | Default light/dark tokens |
-| shadcn / Framer Motion / Lucide / MDX | Not installed |
+| `src/app/layout.tsx` | Phase 1 — dark shell, `site.seo`, Geist |
+| `src/app/page.tsx` | Phase 1 — quiet canvas (`site.name` / `site.role`) |
+| `src/app/globals.css` | Blueprint tokens + grid utilities |
+| shadcn / Framer Motion / Lucide | Installed (button, separator). MDX not yet |
 | Real content (bio, jobs, links, resume) | Placeholders locked — see Content inventory |
 
 Path alias: `@/*` → `./src/*`. Keep the `src/` layout. Do not move to a root `app/` folder.
@@ -401,18 +401,18 @@ Install (and nothing else):
 
 Build:
 
-- [ ] `src/lib/cn.ts` — `cn()` helper
-- [ ] `src/lib/site.ts` — full identity config (see shape above). Metadata in layout reads `site.seo`, not string literals
-- [ ] `src/content/experience.ts` — two generic cards (even if unused until Phase 4)
-- [ ] `src/content/skills.ts` — capability rows (even if unused until Phase 4)
-- [ ] `src/content/history.ts` — year entries (even if unused until Phase 7)
-- [ ] Design tokens in `globals.css` (colors, fonts, easing, grid utilities)
-- [ ] Dark `html` class, no light flash
-- [ ] `src/components/animations/blueprint-grid.tsx` — static CSS grid + one radial glow
-- [ ] `src/components/layout/site-shell.tsx` — skip link + `main`
-- [ ] Root layout: fonts, `site.seo`, shell, grid
-- [ ] Replace starter `page.tsx` with a quiet canvas (`site.name` + `site.role` only, no default Next template)
-- [ ] Folder stubs: `components/{layout,sections,ui,animations}`, `content/projects`, `hooks`
+- [x] `src/lib/cn.ts` — `cn()` helper
+- [x] `src/lib/site.ts` — full identity config (see shape above). Metadata in layout reads `site.seo`, not string literals
+- [x] `src/content/experience.ts` — two generic cards (even if unused until Phase 4)
+- [x] `src/content/skills.ts` — capability rows (even if unused until Phase 4)
+- [x] `src/content/history.ts` — year entries (even if unused until Phase 7)
+- [x] Design tokens in `globals.css` (colors, fonts, easing, grid utilities)
+- [x] Dark `html` class, no light flash
+- [x] `src/components/animations/blueprint-grid.tsx` — static CSS grid + one radial glow
+- [x] `src/components/layout/site-shell.tsx` — skip link + `main`
+- [x] Root layout: fonts, `site.seo`, shell, grid
+- [x] Replace starter `page.tsx` with a quiet canvas (`site.name` + `site.role` only, no default Next template)
+- [x] Folder stubs: `components/{layout,sections,ui,animations}`, `content/projects`, `hooks`
 
 **Done when:** `/` is a dark navy page with a subtle blueprint grid, Geist typography, name/role, and zero starter-kit chrome.
 
