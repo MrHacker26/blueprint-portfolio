@@ -1,139 +1,68 @@
-import type { PlaygroundFlow } from "@/types/content";
+import type { Playground } from "@/types/content";
 
-export const playground: PlaygroundFlow[] = [
-  {
-    id: "ocr",
-    title: "OCR flow",
-    summary: "Capture a label, parse a date, keep the kitchen offline-first.",
-    steps: [
-      {
-        id: "ocr-capture",
-        label: "Capture",
-        detail: "Frame the label. Bad light and half-cuts are normal input.",
-      },
-      {
-        id: "ocr-read",
-        label: "OCR",
-        detail: "Read characters on device first. Confidence is not truth.",
-      },
-      {
-        id: "ocr-parse",
-        label: "Parse",
-        detail: "Turn text into a date, or refuse. Never invent an expiry.",
-      },
-      {
-        id: "ocr-fallback",
-        label: "AI fallback",
-        detail:
-          "Only if OCR is junk. Still fail closed if the model is unsure.",
-      },
-      {
-        id: "ocr-store",
-        label: "Local store",
-        detail: "Source of truth stays on the phone. Sync is optional.",
-      },
-    ],
+export const playground: Playground = {
+  kicker: "refridz.bench",
+  title: "OCR bench",
+  summary:
+    "Capture a label, parse a date, keep the kitchen honest. If the read is junk, refuse. Never invent an expiry.",
+  hint: "Type a label or pick a sample. The pipeline should fail closed.",
+  inputLabel: "Label",
+  inputPlaceholder: "EXP 12 APR 2026",
+  samplesLabel: "Samples",
+  logLabel: "Trace",
+  resultIdle: "Waiting for a label.",
+  resultStored: "Stored {date}",
+  resultRefused: "Refused. No date written.",
+  samples: [
+    {
+      id: "clean",
+      label: "Clean",
+      value: "EXP 12 APR 2026",
+    },
+    {
+      id: "iso",
+      label: "ISO",
+      value: "PACKED 2026-04-12",
+    },
+    {
+      id: "unambiguous",
+      label: "Day 31",
+      value: "USE BY 31/12/2026",
+    },
+    {
+      id: "ambiguous",
+      label: "Ambiguous",
+      value: "BEST BY 04/12/26",
+    },
+    {
+      id: "ocr-glitch",
+      label: "OCR glitch",
+      value: "EXP 12 APR 2O26",
+    },
+    {
+      id: "junk",
+      label: "Junk light",
+      value: "MILK 2% LOT#A19 KEEP COLD",
+    },
+  ],
+  steps: [
+    { id: "capture", label: "Capture" },
+    { id: "ocr", label: "OCR" },
+    { id: "parse", label: "Parse" },
+    { id: "fallback", label: "AI fallback" },
+    { id: "store", label: "Local store" },
+  ],
+  notes: {
+    idle: "Idle.",
+    capture: "Frame locked. Bad light is still input.",
+    ocrHigh: "On-device read. Confidence is not truth.",
+    ocrLow: "Junk characters. Handing off.",
+    parseOk: "Turned text into a date.",
+    parseNone: "No date in the read.",
+    parseAmbiguous: "Two valid months. Will not guess.",
+    fallbackSkip: "Skipped. The on-device read was enough.",
+    fallbackRun: "Fallback ran. It still has to parse, not invent.",
+    storeOk: "Wrote to local store.",
+    storeRefuse: "Stopped. Ask the human.",
   },
-  {
-    id: "api",
-    title: "API flow",
-    summary: "A request should fail loud at the edge, not deep in a handler.",
-    steps: [
-      {
-        id: "api-request",
-        label: "Request",
-        detail:
-          "A typed payload hits the edge. Unknown fields do not sneak in.",
-      },
-      {
-        id: "api-validate",
-        label: "Validate",
-        detail: "Schema first. Invalid work never reaches the service.",
-      },
-      {
-        id: "api-authz",
-        label: "Authorize",
-        detail: "Identity and scope on every call, not a hidden flag.",
-      },
-      {
-        id: "api-execute",
-        label: "Execute",
-        detail: "One job, one timeout. Side effects stay explicit.",
-      },
-      {
-        id: "api-respond",
-        label: "Respond",
-        detail:
-          "Status the client can handle. Errors are part of the contract.",
-      },
-    ],
-  },
-  {
-    id: "worker",
-    title: "Worker execution",
-    summary: "An isolate should do one thing and forget it.",
-    steps: [
-      {
-        id: "worker-event",
-        label: "Event",
-        detail: "HTTP or queue enters the isolate. No leftover request state.",
-      },
-      {
-        id: "worker-start",
-        label: "Start",
-        detail:
-          "Cold start is a cost. Keep the handler small enough to pay it.",
-      },
-      {
-        id: "worker-run",
-        label: "Execute",
-        detail: "CPU time is the budget. Work that can wait should wait.",
-      },
-      {
-        id: "worker-bind",
-        label: "Bindings",
-        detail:
-          "KV, R2, secrets as declared. Not globals hiding in the module.",
-      },
-      {
-        id: "worker-respond",
-        label: "Respond",
-        detail: "Return and release. Leaking the isolate is a product bug.",
-      },
-    ],
-  },
-  {
-    id: "auth",
-    title: "Auth flow",
-    summary: "A session is a policy, not a query parameter.",
-    steps: [
-      {
-        id: "auth-identity",
-        label: "Identity",
-        detail: "Who is calling. Anonymous is a choice, not a default leak.",
-      },
-      {
-        id: "auth-challenge",
-        label: "Challenge",
-        detail: "Prove it. The login page is not the only gate.",
-      },
-      {
-        id: "auth-token",
-        label: "Token",
-        detail:
-          "Short-lived and scoped. Long-lived secrets stay off the client.",
-      },
-      {
-        id: "auth-edge",
-        label: "Edge check",
-        detail: "Every request. A valid cookie on /login is not enough.",
-      },
-      {
-        id: "auth-expire",
-        label: "Expire",
-        detail:
-          "Policy ends the session. The UI follows, it does not negotiate.",
-      },
-    ],
-  },
-];
+};

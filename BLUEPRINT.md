@@ -541,12 +541,10 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** The “this is a product” lower half.
 
-- [x] Engineering Playground: interactive architecture cards (HTML/CSS)
-  - OCR flow
-  - API flow
-  - Worker execution
-  - Auth flow
-  - Click/keyboard steps through stages; one active node at a time
+- [x] Engineering Playground: live OCR bench (HTML/CSS)
+  - Type a label or pick a sample
+  - Capture → OCR → Parse → AI fallback → Local store
+  - Ambiguous dates and junk reads refuse. Never invent an expiry.
 - [x] Git History: year + entry, expand on click, not a commit graph gimmick
 - [x] Contact: glass card, GitHub, LinkedIn, Email from `site`
   - If a social/email is `null`: muted placeholder chip, not a fake link

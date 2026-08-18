@@ -28,17 +28,52 @@ export type HistoryEntry = {
   detail: string;
 };
 
-export type PlaygroundStep = {
+export type PlaygroundSample = {
   id: string;
   label: string;
-  detail: string;
+  value: string;
 };
 
-export type PlaygroundFlow = {
-  id: string;
+export type PlaygroundStepId =
+  | "capture"
+  | "ocr"
+  | "parse"
+  | "fallback"
+  | "store";
+
+export type PlaygroundStep = {
+  id: PlaygroundStepId;
+  label: string;
+};
+
+export type PlaygroundNoteId =
+  | "idle"
+  | "capture"
+  | "ocrHigh"
+  | "ocrLow"
+  | "parseOk"
+  | "parseNone"
+  | "parseAmbiguous"
+  | "fallbackSkip"
+  | "fallbackRun"
+  | "storeOk"
+  | "storeRefuse";
+
+export type Playground = {
+  kicker: string;
   title: string;
   summary: string;
+  hint: string;
+  inputLabel: string;
+  inputPlaceholder: string;
+  samplesLabel: string;
+  logLabel: string;
+  resultIdle: string;
+  resultStored: string;
+  resultRefused: string;
+  samples: PlaygroundSample[];
   steps: PlaygroundStep[];
+  notes: Record<PlaygroundNoteId, string>;
 };
 
 export type ProjectStatus = "shipped" | "in-progress" | "private";

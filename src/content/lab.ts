@@ -13,7 +13,7 @@ export const lab = {
     { status: "ok" as const, text: "content: site.ts + mdx case studies" },
     {
       status: "ok" as const,
-      text: "playground: html/css flows, one node at a time",
+      text: "playground: live ocr bench, fail closed",
     },
     {
       status: "ok" as const,
