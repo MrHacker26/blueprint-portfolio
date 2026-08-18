@@ -7,10 +7,10 @@ export const site = {
   about:
     "I design and ship full-stack products across TypeScript systems, React Native clients, and Cloudflare infrastructure. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
   url: null as string | null,
-  email: null as string | null,
+  email: "tjocz26@gmail.com",
   socials: {
-    github: null as string | null,
-    linkedin: null as string | null,
+    github: "https://github.com/MrHacker26",
+    linkedin: "https://linkedin.com/in/tarun-joshi26",
   },
   resume: {
     available: false,
@@ -71,6 +71,7 @@ export const site = {
     skillLevel: "Proficiency",
     projectHero: "Project capture",
     architectureFlow: "Architecture flow",
+    copyEmail: "Copy email",
   },
   projectStatus: {
     shipped: "Shipped",
@@ -86,6 +87,18 @@ export const site = {
     privateNote:
       "Sanitized write-up. Internal systems, datasets, and credentials stay off this page.",
     galleryLabel: "Gallery",
+  },
+  contact: {
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    email: "Email",
+    copy: "Copy",
+    copied: "Copied",
+    copyFailed: "Copy failed",
+    pending: "Coming Soon",
+  },
+  playground: {
+    hint: "Focus or click a node. One stage at a time.",
   },
 } as const;
 

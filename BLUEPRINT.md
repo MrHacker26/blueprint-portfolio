@@ -541,14 +541,14 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** The “this is a product” lower half.
 
-- [ ] Engineering Playground: interactive architecture cards (HTML/CSS)
+- [x] Engineering Playground: interactive architecture cards (HTML/CSS)
   - OCR flow
   - API flow
   - Worker execution
   - Auth flow
   - Click/keyboard steps through stages; one active node at a time
-- [ ] Git History: year + entry, expand on click, not a commit graph gimmick
-- [ ] Contact: glass card, GitHub, LinkedIn, Email from `site`
+- [x] Git History: year + entry, expand on click, not a commit graph gimmick
+- [x] Contact: glass card, GitHub, LinkedIn, Email from `site`
   - If a social/email is `null`: muted placeholder chip, not a fake link
   - Copy-to-clipboard on email only when `site.email` is set
   - `aria-live` confirmation: `Copied`

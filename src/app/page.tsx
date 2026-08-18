@@ -1,10 +1,11 @@
 import { AboutSection } from "@/components/sections/about";
+import { ContactSection } from "@/components/sections/contact";
 import { ExperienceSection } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
-import { HomeSection } from "@/components/sections/home-section";
+import { HistorySection } from "@/components/sections/history";
+import { PlaygroundSection } from "@/components/sections/playground";
 import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
-import { sectionLabel } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -14,9 +15,9 @@ export default function Home() {
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
-      <HomeSection id="playground" label={sectionLabel("playground")} />
-      <HomeSection id="history" label={sectionLabel("history")} />
-      <HomeSection id="contact" label={sectionLabel("contact")} />
+      <PlaygroundSection />
+      <HistorySection />
+      <ContactSection />
     </>
   );
 }

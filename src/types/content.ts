@@ -28,6 +28,19 @@ export type HistoryEntry = {
   detail: string;
 };
 
+export type PlaygroundStep = {
+  id: string;
+  label: string;
+  detail: string;
+};
+
+export type PlaygroundFlow = {
+  id: string;
+  title: string;
+  summary: string;
+  steps: PlaygroundStep[];
+};
+
 export type ProjectStatus = "shipped" | "in-progress" | "private";
 
 export type ProjectFrontmatter = {

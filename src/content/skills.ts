@@ -6,8 +6,7 @@ export const skills: Skill[] = [
   {
     name: "TypeScript",
     level: 10,
-    detail:
-      "Default language for product work. Types as design, not ceremony.",
+    detail: "Default language for product work. Types as design, not ceremony.",
   },
   {
     name: "Next.js",
