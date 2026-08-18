@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 import { BlueprintGrid } from "@/components/animations/blueprint-grid";
+import { BuildProgress } from "@/components/layout/build-progress";
+import { FloatingNav } from "@/components/layout/floating-nav";
+import { Footer } from "@/components/layout/footer";
 import { site } from "@/lib/site";
 
 type SiteShellProps = {
@@ -17,9 +20,12 @@ export function SiteShell({ children }: SiteShellProps) {
       </a>
       <BlueprintGrid />
       <div className="relative z-10 flex min-h-full flex-col">
+        <BuildProgress />
+        <FloatingNav />
         <main id="main" className="flex flex-1 flex-col">
           {children}
         </main>
+        <Footer />
       </div>
     </>
   );

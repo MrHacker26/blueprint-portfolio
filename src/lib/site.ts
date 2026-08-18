@@ -19,13 +19,23 @@ export const site = {
     pendingLabel: "Coming Soon",
   },
   statusPills: ["Shipping Products", "Next.js 16", "Bun", "Cloudflare"],
-  nav: [
-    { id: "about", href: "#about", label: "About" },
-    { id: "experience", href: "#experience", label: "Experience" },
-    { id: "projects", href: "#projects", label: "Projects" },
-    { id: "skills", href: "#skills", label: "Skills" },
-    { id: "contact", href: "#contact", label: "Contact" },
+  sections: [
+    { id: "about", label: "About", inNav: true },
+    { id: "experience", label: "Experience", inNav: true },
+    { id: "projects", label: "Projects", inNav: true },
+    { id: "skills", label: "Skills", inNav: true },
+    { id: "playground", label: "Playground", inNav: false },
+    { id: "history", label: "History", inNav: false },
+    { id: "contact", label: "Contact", inNav: true },
   ],
+  chrome: {
+    buildStages: [
+      { threshold: 0.2, label: "Compiling..." },
+      { threshold: 0.5, label: "Linking..." },
+      { threshold: 0.8, label: "Optimizing..." },
+      { threshold: 1, label: "Build Complete." },
+    ],
+  },
   seo: {
     title: "Tarun Joshi — Senior Full Stack Engineer",
     description:
@@ -34,5 +44,26 @@ export const site = {
   },
   a11y: {
     skipToContent: "Skip to content",
+    primaryNav: "Primary",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    menuTitle: "Navigate",
+    buildProgress: "Build progress",
   },
 } as const;
+
+export const navItems = site.sections.filter((section) => section.inNav);
+
+export const navIds = navItems.map((item) => item.id);
+
+export function sectionHref(id: string) {
+  return `#${id}`;
+}
+
+export function getBuildStage(progress: number) {
+  const p = Math.min(1, Math.max(0, progress));
+  return (
+    site.chrome.buildStages.find((stage) => p < stage.threshold) ??
+    site.chrome.buildStages[site.chrome.buildStages.length - 1]
+  );
+}

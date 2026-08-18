@@ -426,17 +426,17 @@ Build:
 
 Build:
 
-- [ ] `src/components/layout/floating-nav.tsx` — glass, desktop links, mobile drawer
-- [ ] Active section indicator (Intersection Observer)
-- [ ] Smooth scroll to `#` ids (`scroll-mt` for sticky offset)
-- [ ] `src/components/layout/build-progress.tsx` — scroll progress as build stages:
+- [x] `src/components/layout/floating-nav.tsx` — glass, desktop links, mobile drawer
+- [x] Active section indicator (Intersection Observer)
+- [x] Smooth scroll to `#` ids (`scroll-mt` for sticky offset)
+- [x] `src/components/layout/build-progress.tsx` — scroll progress as build stages:
   - 0–20% `Compiling...`
   - 20–50% `Linking...`
   - 50–80% `Optimizing...`
   - 80–100% `Build Complete.`
-- [ ] `src/components/layout/footer.tsx` — mono meta, year, name
-- [ ] Homepage skeleton sections with ids and `min-h` spacers so spy/progress can be tested
-- [ ] shadcn: `sheet` (or a small custom drawer if lighter)
+- [x] `src/components/layout/footer.tsx` — mono meta, year, name
+- [x] Homepage skeleton sections with ids and `min-h` spacers so spy/progress can be tested
+- [x] shadcn: `sheet` (or a small custom drawer if lighter)
 
 **Done when:** scrolling a tall blank homepage updates the nav underline and the build label. Mobile drawer is keyboard accessible (Esc, focus trap).
 
