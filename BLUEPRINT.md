@@ -450,23 +450,23 @@ Build:
 
 Left:
 
-- [ ] Name (display)
-- [ ] Role (mono label)
-- [ ] Tagline
-- [ ] CTAs: View Projects (`#projects`), Download Resume from `site.resume`
+- [x] Name (display)
+- [x] Role (mono label)
+- [x] Tagline
+- [x] CTAs: View Projects (`#projects`), Download Resume from `site.resume`
   - If `available === false`: button visible, disabled, `aria-disabled`, subtle **Coming Soon** (tooltip or mono hint). Do not 404 `/resume.pdf`.
-- [ ] Status pills with a *very* slow opacity/position drift (disabled under reduced motion)
+- [x] Status pills with a *very* slow opacity/position drift (disabled under reduced motion)
 
 Right:
 
-- [ ] Blueprint card (HTML/CSS). Animated technical lines, measurement ticks, moving connection paths.
-- [ ] No SVG text. Labels like `WKWebView` / `bridge` / `core` are HTML if they exist at all — keep them optional and sparse.
-- [ ] Card should feel like a Figma frame + calipers, not a robot face.
+- [x] Blueprint card (HTML/CSS). Animated technical lines, measurement ticks, moving connection paths.
+- [x] No SVG text. Labels like `WKWebView` / `bridge` / `core` are HTML if they exist at all — keep them optional and sparse.
+- [x] Card should feel like a Figma frame + calipers, not a robot face.
 
 Background (hero only, still subtle):
 
-- [ ] Floating connection nodes (few, not a particle field)
-- [ ] Thin dashed paths with slow `stroke-dashoffset`
+- [x] Floating connection nodes (few, not a particle field)
+- [x] Thin dashed paths with slow `stroke-dashoffset`
 
 **Done when:** desktop hero is a two-column editorial layout; mobile stacks (copy first, card second). Motion is felt, not watched.
 

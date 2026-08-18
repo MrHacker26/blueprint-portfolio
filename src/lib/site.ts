@@ -19,6 +19,20 @@ export const site = {
     pendingLabel: "Coming Soon",
   },
   statusPills: ["Shipping Products", "Next.js 16", "Bun", "Cloudflare"],
+  cta: {
+    viewProjects: "View Projects",
+  },
+  hero: {
+    frame: "hero.blueprint",
+    widthMark: "1440",
+    heightMark: "900",
+    origin: "0,0",
+    nodes: {
+      client: "client",
+      edge: "edge",
+      core: "core",
+    },
+  },
   sections: [
     { id: "about", label: "About", inNav: true },
     { id: "experience", label: "Experience", inNav: true },
@@ -49,6 +63,8 @@ export const site = {
     closeMenu: "Close menu",
     menuTitle: "Navigate",
     buildProgress: "Build progress",
+    liveStatus: "Live status",
+    blueprintCard: "Blueprint frame",
   },
 } as const;
 
