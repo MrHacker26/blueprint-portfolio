@@ -13,7 +13,7 @@
   --line: rgba(148, 163, 184, 0.18);
   --text: #f1f5f9;
   --text-muted: #94a3b8;
-  --text-faint: #64748b;
+  --text-faint: #7b8ca4;
   --signal: #38bdf8;
   --signal-strong: #0ea5e9;
   --signal-dim: rgba(56, 189, 248, 0.12);
@@ -164,9 +164,18 @@
     @apply bg-background font-sans text-foreground antialiased;
   }
 
-  a:focus-visible {
+  a:focus-visible,
+  summary:focus-visible {
     outline: 2px solid var(--signal);
     outline-offset: 2px;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
   }
 }
 
@@ -264,15 +273,47 @@
   animation: node-pulse 7s ease-in-out infinite;
 }
 
+@keyframes loader-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loader-pulse {
+  animation: loader-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes project-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-enter {
+  animation: project-enter 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-enter,
   .pill-drift,
   .blueprint-path,
-  .node-pulse {
+  .node-pulse,
+  .loader-pulse,
+  .project-enter,
+  .animate-in,
+  .animate-out {
     animation: none;
   }
 
-  .hero-enter {
+  .hero-enter,
+  .project-enter {
     opacity: 1;
     transform: none;
   }

@@ -11,7 +11,7 @@ export function Hero() {
     >
       <HeroField />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
-        <div className="hero-enter">
+        <div>
           <p className="font-mono text-[11px] tracking-[0.22em] text-text-faint uppercase">
             {site.role}
           </p>
@@ -25,23 +25,34 @@ export function Hero() {
             <Button asChild size="lg" className="h-10 rounded-full px-5">
               <a href={sectionHref("projects")}>{site.cta.viewProjects}</a>
             </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="lg"
-              disabled
-              aria-disabled="true"
-              aria-describedby="resume-pending"
-              className="h-10 rounded-full px-5 disabled:opacity-70"
-            >
-              <span>{site.resume.label}</span>
-              <span
-                id="resume-pending"
-                className="font-mono text-[10px] tracking-[0.12em] text-text-faint uppercase"
+            {site.resume.available ? (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-10 rounded-full px-5"
               >
-                {site.resume.pendingLabel}
-              </span>
-            </Button>
+                <a href={site.resume.href}>{site.resume.label}</a>
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                variant="outline"
+                size="lg"
+                disabled
+                aria-disabled="true"
+                aria-describedby="resume-pending"
+                className="h-10 rounded-full px-5 disabled:opacity-70"
+              >
+                <span>{site.resume.label}</span>
+                <span
+                  id="resume-pending"
+                  className="font-mono text-[10px] tracking-[0.12em] text-text-faint uppercase"
+                >
+                  {site.resume.pendingLabel}
+                </span>
+              </Button>
+            )}
           </div>
           <ul
             aria-label={site.a11y.liveStatus}

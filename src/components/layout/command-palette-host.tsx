@@ -1,7 +1,7 @@
-import { CommandPaletteLazy } from "@/components/layout/command-palette-lazy";
+import { CommandPaletteGate } from "@/components/layout/command-palette-gate";
 import { getCommandItems } from "@/lib/command-items";
 
 export function CommandPaletteHost() {
   const items = getCommandItems();
-  return <CommandPaletteLazy items={items} />;
+  return <CommandPaletteGate items={items} />;
 }

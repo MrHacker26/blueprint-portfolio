@@ -61,6 +61,7 @@ export function FloatingNav() {
             size="icon-sm"
             className="text-text-faint hover:text-foreground sm:w-auto sm:px-2"
             aria-label={site.a11y.openCommand}
+            aria-keyshortcuts="Meta+K Control+K"
             onClick={() => {
               window.dispatchEvent(new Event(OPEN_COMMAND_EVENT));
             }}

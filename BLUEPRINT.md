@@ -577,20 +577,20 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** Production. The $20k feel is in the last 10%.
 
-- [ ] Metadata API from `site.seo` (title template, description)
-- [ ] Canonical + sitemap **only if** `site.url` is set; do not emit `example.com`
-- [ ] Open Graph + Twitter cards (`public/og.png`)
-- [ ] JSON-LD `Person` schema from `site` (omit empty socials)
-- [ ] `sitemap.ts` + `robots.ts`
-- [ ] `loading.tsx`: premium blueprint loader (one pulse, no spinner farm)
-- [ ] `not-found.tsx`: on-brand
-- [ ] Page transitions: small fade on project routes only
-- [ ] Reduced-motion audit across all client components
-- [ ] Keyboard pass: nav, drawers, disclosures, palette, playground
-- [ ] Bundle check: drop unused client islands; dynamic import palette
-- [ ] Lighthouse 95+ on homepage and one case study (local production build)
+- [x] Metadata API from `site.seo` (title template, description)
+- [x] Canonical + sitemap **only if** `site.url` is set; do not emit `example.com`
+- [x] Open Graph + Twitter cards (`public/og.png`)
+- [x] JSON-LD `Person` schema from `site` (omit empty socials)
+- [x] `sitemap.ts` + `robots.ts`
+- [x] `loading.tsx`: premium blueprint loader (one pulse, no spinner farm)
+- [x] `not-found.tsx`: on-brand
+- [x] Page transitions: small fade on project routes only
+- [x] Reduced-motion audit across all client components
+- [x] Keyboard pass: nav, drawers, disclosures, palette, playground
+- [x] Bundle check: drop unused client islands; dynamic import palette
+- [x] Lighthouse 95+ on homepage and one case study (local production build)
 - [ ] When real resume/socials/domain exist: update `site.ts` + add `public/resume.pdf` only: flip `resume.available` to `true`
-- [ ] Delete leftover `public/next.svg` starter assets if unused
+- [x] Delete leftover `public/next.svg` starter assets if unused
 
 **Done when:** the Final Polish Checklist below is all checked.
 
@@ -598,19 +598,19 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 ## Final polish checklist
 
-- [ ] Premium loading experience
-- [ ] Smooth page transitions
-- [ ] Blueprint grid throughout
-- [ ] Interactive architecture cards
-- [ ] Responsive: 360px, 768px, 1024px, 1440px
-- [ ] Lighthouse 95+ (Perf, A11y, Best Practices, SEO)
-- [ ] First Load JS under 180KB where practical
-- [ ] Beautiful empty states
-- [ ] Meaningful micro-interactions
-- [ ] Production-ready TypeScript, Biome clean
-- [ ] No placeholder-template feeling
-- [ ] `prefers-reduced-motion` respected
-- [ ] No confidential government artifacts
+- [x] Premium loading experience
+- [x] Smooth page transitions
+- [x] Blueprint grid throughout
+- [x] Interactive architecture cards
+- [x] Responsive: 360px, 768px, 1024px, 1440px
+- [x] Lighthouse 95+ (Perf, A11y, Best Practices, SEO)
+- [x] First Load JS under 180KB where practical
+- [x] Beautiful empty states
+- [x] Meaningful micro-interactions
+- [x] Production-ready TypeScript, Biome clean
+- [x] No placeholder-template feeling
+- [x] `prefers-reduced-motion` respected
+- [x] No confidential government artifacts
 
 ---
 

@@ -51,6 +51,13 @@ export const site = {
       { threshold: 0.8, label: "Optimizing..." },
       { threshold: 1, label: "Build Complete." },
     ],
+    loading: "Compiling...",
+    notFound: {
+      code: "404",
+      title: "Route not found",
+      body: "This path is not in the build.",
+      action: "Back to index",
+    },
   },
   seo: {
     title: "Tarun Joshi, Senior Full Stack Engineer",

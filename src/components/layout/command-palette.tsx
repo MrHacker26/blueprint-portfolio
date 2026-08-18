@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import {
   Command,
   CommandDialog,
@@ -12,45 +11,26 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command";
-import {
-  type CommandEntry,
-  commandGroups,
-  OPEN_COMMAND_EVENT,
-} from "@/lib/commands";
+import { type CommandEntry, commandGroups } from "@/lib/commands";
 import { site } from "@/lib/site";
 
 type CommandPaletteProps = {
   items: CommandEntry[];
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 };
 
-export function CommandPalette({ items }: CommandPaletteProps) {
+export function CommandPalette({
+  items,
+  open,
+  onOpenChange,
+}: CommandPaletteProps) {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        setOpen((value) => !value);
-      }
-    }
-
-    function onOpen() {
-      setOpen(true);
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener(OPEN_COMMAND_EVENT, onOpen);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener(OPEN_COMMAND_EVENT, onOpen);
-    };
-  }, []);
 
   return (
     <CommandDialog
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={onOpenChange}
       title={site.a11y.commandPalette}
       description={site.command.placeholder}
       className="border-line bg-bg-elevated sm:max-w-lg"
@@ -76,7 +56,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
                       if (item.disabled) {
                         return;
                       }
-                      setOpen(false);
+                      onOpenChange(false);
                       router.push(item.href);
                     }}
                   >

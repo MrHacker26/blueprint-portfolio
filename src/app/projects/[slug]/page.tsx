@@ -9,6 +9,7 @@ import {
   getProjectMeta,
   getProjectSlugs,
 } from "@/lib/projects";
+import { projectMetadata } from "@/lib/seo";
 import { sectionHref, site } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -29,10 +30,7 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: project.title,
-    description: project.tagline,
-  };
+  return projectMetadata(project);
 }
 
 export default async function ProjectPage({
