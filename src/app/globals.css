@@ -296,8 +296,23 @@
   }
 }
 
-.project-enter {
-  animation: project-enter 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+@keyframes haptic-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--glow);
+  }
+  40% {
+    transform: scale(var(--haptic-scale, 1.08));
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.haptic-pulse {
+  animation: haptic-pulse 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -307,6 +322,7 @@
   .node-pulse,
   .loader-pulse,
   .project-enter,
+  .haptic-pulse,
   .animate-in,
   .animate-out {
     animation: none;

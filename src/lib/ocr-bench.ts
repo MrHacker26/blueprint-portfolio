@@ -1,11 +1,10 @@
-import type { PlaygroundNoteId, PlaygroundStepId } from "@/types/content";
-
-export type BenchStepState = "idle" | "ok" | "warn" | "fail" | "skip";
+import type { BenchStepState } from "@/lib/bench";
+import type { OcrNoteId, OcrStepId } from "@/types/content";
 
 export type BenchTrace = {
-  id: PlaygroundStepId;
+  id: OcrStepId;
   state: BenchStepState;
-  note: PlaygroundNoteId;
+  note: OcrNoteId;
 };
 
 export type BenchResult = {
@@ -184,7 +183,7 @@ export function parseLabel(raw: string): BenchResult {
   }
 
   const stored = hit.kind === "ok";
-  let parseNote: PlaygroundNoteId = "parseNone";
+  let parseNote: OcrNoteId = "parseNone";
   if (first.kind === "ok") {
     parseNote = "parseOk";
   } else if (first.kind === "ambiguous") {

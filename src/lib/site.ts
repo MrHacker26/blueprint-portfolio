@@ -107,7 +107,7 @@ export const site = {
     pending: "Coming Soon",
   },
   playground: {
-    hint: "Type a label or pick a sample. The pipeline should fail closed.",
+    hint: "Two live benches. Fail closed on dates. Fail silent on unknown rumble.",
   },
   command: {
     placeholder: "Search the system...",

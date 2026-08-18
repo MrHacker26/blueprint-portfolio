@@ -541,10 +541,9 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 
 **Goal:** The “this is a product” lower half.
 
-- [x] Engineering Playground: live OCR bench (HTML/CSS)
-  - Type a label or pick a sample
-  - Capture → OCR → Parse → AI fallback → Local store
-  - Ambiguous dates and junk reads refuse. Never invent an expiry.
+- [x] Engineering Playground: live benches (HTML/CSS)
+  - RumbleX haptic bridge: hits through iPhone → WKWebView → JS Bridge → Core Haptics. Unknown fails silent. Queued backlog drops.
+  - Refridz OCR bench: type a label or pick a sample. Ambiguous dates and junk reads refuse. Never invent an expiry.
 - [x] Git History: year + entry, expand on click, not a commit graph gimmick
 - [x] Contact: glass card, GitHub, LinkedIn, Email from `site`
   - If a social/email is `null`: muted placeholder chip, not a fake link

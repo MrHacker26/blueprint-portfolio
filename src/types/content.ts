@@ -34,19 +34,9 @@ export type PlaygroundSample = {
   value: string;
 };
 
-export type PlaygroundStepId =
-  | "capture"
-  | "ocr"
-  | "parse"
-  | "fallback"
-  | "store";
+export type OcrStepId = "capture" | "ocr" | "parse" | "fallback" | "store";
 
-export type PlaygroundStep = {
-  id: PlaygroundStepId;
-  label: string;
-};
-
-export type PlaygroundNoteId =
+export type OcrNoteId =
   | "idle"
   | "capture"
   | "ocrHigh"
@@ -59,11 +49,10 @@ export type PlaygroundNoteId =
   | "storeOk"
   | "storeRefuse";
 
-export type Playground = {
+export type OcrBench = {
   kicker: string;
   title: string;
   summary: string;
-  hint: string;
   inputLabel: string;
   inputPlaceholder: string;
   samplesLabel: string;
@@ -72,8 +61,49 @@ export type Playground = {
   resultStored: string;
   resultRefused: string;
   samples: PlaygroundSample[];
-  steps: PlaygroundStep[];
-  notes: Record<PlaygroundNoteId, string>;
+  steps: { id: OcrStepId; label: string }[];
+  notes: Record<OcrNoteId, string>;
+};
+
+export type HapticKind = "light" | "medium" | "heavy" | "unknown" | "queued";
+
+export type HapticHit = {
+  id: string;
+  label: string;
+  kind: HapticKind;
+};
+
+export type HapticStepId = "phone" | "webview" | "bridge" | "haptics";
+
+export type HapticNoteId =
+  | "idle"
+  | "phone"
+  | "webview"
+  | "bridgeOk"
+  | "bridgeUnknown"
+  | "bridgeQueued"
+  | "hapticsPlay"
+  | "hapticsSkip";
+
+export type HapticBench = {
+  kicker: string;
+  title: string;
+  summary: string;
+  hitsLabel: string;
+  logLabel: string;
+  resultIdle: string;
+  resultPlayed: string;
+  resultSilent: string;
+  resultDropped: string;
+  hits: HapticHit[];
+  steps: { id: HapticStepId; label: string }[];
+  notes: Record<HapticNoteId, string>;
+};
+
+export type Playground = {
+  hint: string;
+  ocr: OcrBench;
+  haptic: HapticBench;
 };
 
 export type ProjectStatus = "shipped" | "in-progress" | "private";
