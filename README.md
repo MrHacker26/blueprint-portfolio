@@ -24,7 +24,3 @@ bunx biome check
 Next.js 16 App Router, React 19, TypeScript, Tailwind v4, Bun, Biome.
 
 Copy lives in `src/lib/site.ts` and `src/content/`. Components render data.
-
-Hidden page: Konami (`↑↑↓↓←→←→BA`) opens `/lab`. Command palette is `⌘K`.
-
-Full spec: [BLUEPRINT.md](./BLUEPRINT.md).
