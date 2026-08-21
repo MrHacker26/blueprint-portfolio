@@ -201,12 +201,10 @@ If `prefers-reduced-motion: reduce`: no looping path animations, no parallax, in
 
 ```
 /                          Home
-  #about
   #experience
   #projects
   #skills
   #playground
-  #history
   #contact
 /projects/rumblex
 /projects/refridz
@@ -215,9 +213,9 @@ If `prefers-reduced-motion: reduce`: no looping path animations, no parallax, in
 /lab                       Hidden (not in nav, noindex)
 ```
 
-Nav items (visible): About · Experience · Projects · Skills · Contact
+Nav items (visible): Experience · Projects · Skills · Contact
 
-Playground and Git History live on the homepage but stay out of the primary nav. Discoverable by scroll and via the command palette.
+Playground lives on the homepage but stays out of the primary nav. Discoverable by scroll and via the command palette.
 
 ---
 

@@ -4,6 +4,7 @@ import {
   CaptureFrame,
   PrivateRecord,
 } from "@/components/projects/capture-frame";
+import { ProjectLinks } from "@/components/projects/project-links";
 import {
   getProjectBySlug,
   getProjectMeta,
@@ -68,21 +69,9 @@ export default async function ProjectPage({
         {meta.tagline}
       </p>
       {meta.links && meta.links.length > 0 ? (
-        <ul className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[11px] tracking-[0.16em] uppercase">
-          <li className="text-text-faint">{site.projects.sourceLabel}</li>
-          {meta.links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-signal hover:underline"
-                rel="noreferrer"
-                target="_blank"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-4">
+          <ProjectLinks links={meta.links} showKicker />
+        </div>
       ) : null}
       {meta.status === "private" ? <PrivateRecord /> : null}
       <CaptureFrame

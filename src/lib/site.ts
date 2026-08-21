@@ -26,12 +26,10 @@ export const site = {
     nodes: ["query", "retrieve", "verify", "refuse"],
   },
   sections: [
-    { id: "about", label: "About", inNav: true },
     { id: "experience", label: "Experience", inNav: true },
     { id: "projects", label: "Projects", inNav: true },
     { id: "skills", label: "Skills", inNav: true },
     { id: "playground", label: "Playground", inNav: false },
-    { id: "history", label: "History", inNav: false },
     { id: "contact", label: "Contact", inNav: true },
   ],
   chrome: {
@@ -87,7 +85,7 @@ export const site = {
     privateNote:
       "Sanitized write-up. Internal systems, datasets, and credentials stay off this page.",
     galleryLabel: "Gallery",
-    sourceLabel: "Source",
+    sourceLabel: "Links",
   },
   contact: {
     intro:

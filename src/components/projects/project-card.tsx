@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CaptureFrame } from "@/components/projects/capture-frame";
+import { ProjectLinks } from "@/components/projects/project-links";
 import { FrameMarks } from "@/components/ui/frame-marks";
 import { site } from "@/lib/site";
 import type { ProjectFrontmatter } from "@/types/content";
@@ -43,6 +44,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </li>
           ))}
         </ul>
+        {project.links && project.links.length > 0 ? (
+          <div className="relative z-10 mt-4">
+            <ProjectLinks
+              links={project.links}
+              className="flex flex-wrap items-center gap-3 font-mono text-[10px] tracking-[0.14em] uppercase"
+            />
+          </div>
+        ) : null}
         <p className="text-signal mt-5 font-mono text-[11px] tracking-[0.14em] uppercase">
           {site.cta.readCaseStudy}
         </p>
