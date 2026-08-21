@@ -1,4 +1,12 @@
+import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
+
+const nodeSlots = [
+  "top-[18%] left-[6%]",
+  "top-[46%] left-[26%]",
+  "top-[46%] left-[52%]",
+  "top-[68%] right-[8%]",
+] as const;
 
 export function BlueprintCard() {
   const { frame, widthMark, heightMark, origin, nodes } = site.hero;
@@ -97,15 +105,17 @@ export function BlueprintCard() {
             />
           </svg>
 
-          <span className="absolute top-[18%] left-[6%] font-mono text-[10px] tracking-wide text-text-muted">
-            {nodes.client}
-          </span>
-          <span className="absolute top-[46%] left-[38%] font-mono text-[10px] tracking-wide text-text-muted">
-            {nodes.edge}
-          </span>
-          <span className="absolute top-[68%] right-[8%] font-mono text-[10px] tracking-wide text-text-muted">
-            {nodes.core}
-          </span>
+          {nodes.slice(0, nodeSlots.length).map((label, index) => (
+            <span
+              key={label}
+              className={cn(
+                "absolute font-mono text-[10px] tracking-wide text-text-muted",
+                nodeSlots[index],
+              )}
+            >
+              {label}
+            </span>
+          ))}
         </div>
       </div>
     </figure>

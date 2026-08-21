@@ -23,11 +23,7 @@ export const site = {
     widthMark: "1440",
     heightMark: "900",
     origin: "0,0",
-    nodes: {
-      client: "client",
-      edge: "edge",
-      core: "core",
-    },
+    nodes: ["query", "retrieve", "verify", "refuse"],
   },
   sections: [
     { id: "about", label: "About", inNav: true },

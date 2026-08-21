@@ -452,7 +452,7 @@ Left:
 Right:
 
 - [x] Blueprint card (HTML/CSS). Animated technical lines, measurement ticks, moving connection paths.
-- [x] No SVG text. Labels like `WKWebView` / `bridge` / `core` are HTML if they exist at all: keep them optional and sparse.
+- [x] No SVG text. Labels like `query` / `retrieve` / `verify` / `refuse` are HTML if they exist at all: keep them optional and sparse.
 - [x] Card should feel like a Figma frame + calipers, not a robot face.
 
 Background (hero only, still subtle):
