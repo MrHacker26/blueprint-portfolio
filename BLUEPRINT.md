@@ -230,7 +230,7 @@ Placeholders are **locked** for v1 build. Swap values in config/content files la
 | --- | --- |
 | Name | Tarun Joshi |
 | Role | Senior Full Stack Engineer |
-| Tagline | Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure. |
+| Tagline | Building TypeScript systems, RAG pipelines, and production platforms under real constraints. |
 | Location | Dehradun, Uttarakhand, India |
 | Email | `null` (placeholder) |
 | GitHub | `null` (placeholder) |
@@ -244,22 +244,19 @@ Placeholders are **locked** for v1 build. Swap values in config/content files la
 Owned by `site.statusPills`:
 
 - Shipping Products
-- Next.js 16
+- TypeScript
 - Bun
-- Cloudflare
+- RAG
 
 ### Experience (stacked cards)
 
-Source: `src/content/experience.ts`. Two cards. Generic wording only. **No real company names, no confidential metrics, no fake percentages.**
+Source: `src/content/experience.ts`. One card. Generic wording only. **No real company names, no confidential metrics, no fake percentages.**
 
 Each card: company, role, duration, 2–4 *qualitative* impact lines, tech chips, expandable engineering notes.
 
 | # | Company | Role | Dates | Impact (qualitative) | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Government Systems | Senior Full Stack Engineer | 2024–2025 | Production-scale delivery; multi-system integrations; strict data boundaries | Constraints, architecture, scale. Zero confidential code, datasets, or internal tool names. |
-| 2 | Startup | Full Stack Engineer | 2023–2024 | Shipped product surfaces; owned web + API work; iterated with incomplete specs | Product-speed chapter. Keep names generic. |
-
-No third card.
+| 1 | Government Systems | Senior Full Stack Engineer | 2023–Present | Production-scale public-sector platforms; multi-system composition; RAG that fails closed | Constraints, architecture, scale. Zero confidential code, datasets, or internal tool names. |
 
 ### Projects
 
@@ -278,10 +275,10 @@ Source: `src/content/skills.ts`. Suggested bars (0–10). Adjust in that file on
 | Capability | Level |
 | --- | --- |
 | TypeScript | 10 |
-| Next.js | 9 |
-| Cloudflare | 8 |
+| Node / APIs | 9 |
+| Next.js | 8 |
+| AI / RAG | 8 |
 | React Native | 7 |
-| Node / APIs | 8 |
 | UI engineering | 8 |
 
 Each row expands on hover/focus with 1–2 sentences of *how you use it*, not a list of buzzwords. Write those sentences in `skills.ts` (honest, generic until refined).
@@ -292,8 +289,7 @@ Source: `src/content/history.ts`.
 
 | Year | Entry |
 | --- | --- |
-| 2023 | Joined Startup |
-| 2024 | Government Systems |
+| 2023 | Government Systems |
 | 2025 | Refridz |
 | 2026 | RumbleX |
 
@@ -343,7 +339,7 @@ export const site = {
   name: "Tarun Joshi",
   role: "Senior Full Stack Engineer",
   location: "Dehradun, Uttarakhand, India",
-  tagline: "Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure.",
+  tagline: "Building TypeScript systems, RAG pipelines, and production platforms under real constraints.",
   about: string,
   url: null as string | null,
   email: null as string | null,
@@ -357,7 +353,7 @@ export const site = {
     label: "Download Resume",
     pendingLabel: "Coming Soon",
   },
-  statusPills: ["Shipping Products", "Next.js 16", "Bun", "Cloudflare"],
+  statusPills: ["Shipping Products", "TypeScript", "Bun", "RAG"],
   nav: [/* About, Experience, Projects, Skills, Contact */],
   seo: {
     title: string,
@@ -655,7 +651,7 @@ Answered 18 Aug 2026. Do not re-ask.
 
 1. **Socials**: GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
 2. **Resume**: button visible, disabled, subtle Coming Soon until PDF exists.
-3. **Experience**: generic “Government Systems / Startup” only. No confidential names or exact internal metrics.
+3. **Experience**: generic “Government Systems” only, 2023–Present. No confidential names or exact internal metrics.
 4. **Projects**: RumbleX, Refridz, Government Dashboard. No extras in v1.
 5. **Domain**: `site.url = null` until a real canonical exists. No fake OG/canonical domain.
 6. **Architecture**: content-first. Identity/SEO in `site.ts`. Experience/skills/history in `content/`. Case studies in MDX. Components consume data; they do not store it.

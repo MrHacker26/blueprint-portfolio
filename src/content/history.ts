@@ -2,16 +2,10 @@ import type { HistoryEntry } from "@/types/content";
 
 export const history: HistoryEntry[] = [
   {
-    id: "2023-startup",
+    id: "2023-government",
     year: "2023",
-    title: "Joined Startup",
-    detail: "Product-speed engineering. Shipping before the spec settled.",
-  },
-  {
-    id: "2024-government",
-    year: "2024",
     title: "Government Systems",
-    detail: "Constraint-led delivery. Architecture, boundaries, scale.",
+    detail: "Public-sector platforms. Identity, integrations, production load.",
   },
   {
     id: "2025-refridz",

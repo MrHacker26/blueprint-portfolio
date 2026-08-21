@@ -9,28 +9,28 @@ export const skills: Skill[] = [
     detail: "Default language for product work. Types as design, not ceremony.",
   },
   {
-    name: "Next.js",
+    name: "Node / APIs",
     level: 9,
+    detail:
+      "HTTP boundaries, Postgres and Redis, job queues, and services that fail loud and recover cleanly.",
+  },
+  {
+    name: "Next.js",
+    level: 8,
     detail:
       "App Router, server-first rendering, and static generation where the page can be a document.",
   },
   {
-    name: "Cloudflare",
+    name: "AI / RAG",
     level: 8,
     detail:
-      "Workers, edge routing, and infrastructure that stays close to the request.",
+      "Retrieval pipelines and vector search. If the retrieve is junk, refuse. Do not invent an answer.",
   },
   {
     name: "React Native",
     level: 7,
     detail:
       "Native-feeling clients with a shared TypeScript core, including bridge work when the OS has to speak.",
-  },
-  {
-    name: "Node / APIs",
-    level: 8,
-    detail:
-      "HTTP boundaries, auth flows, and services that fail loud and recover cleanly.",
   },
   {
     name: "UI engineering",

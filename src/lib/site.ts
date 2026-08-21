@@ -3,9 +3,9 @@ export const site = {
   role: "Senior Full Stack Engineer",
   location: "Dehradun, Uttarakhand, India",
   tagline:
-    "Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure.",
+    "Building TypeScript systems, RAG pipelines, and production platforms under real constraints.",
   about:
-    "I design and ship full-stack products across TypeScript systems, React Native clients, and Cloudflare infrastructure. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
+    "I design and ship full-stack TypeScript products: public-sector platforms, React Native clients, and AI surfaces that fail closed. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
   url: null as string | null,
   email: "tjocz26@gmail.com",
   socials: {
@@ -18,7 +18,7 @@ export const site = {
     label: "Download Resume",
     pendingLabel: "Coming Soon",
   },
-  statusPills: ["Shipping Products", "Next.js 16", "Bun", "Cloudflare"],
+  statusPills: ["Shipping Products", "TypeScript", "Bun", "RAG"],
   cta: {
     viewProjects: "View Projects",
     readCaseStudy: "Case study",
@@ -62,7 +62,7 @@ export const site = {
   seo: {
     title: "Tarun Joshi, Senior Full Stack Engineer",
     description:
-      "Building scalable products with TypeScript, React Native, Cloudflare, and modern web infrastructure.",
+      "Building TypeScript systems, RAG pipelines, and production platforms under real constraints.",
     ogImage: "/og.png",
   },
   a11y: {
