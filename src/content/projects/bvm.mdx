@@ -1,0 +1,69 @@
+---
+slug: bvm
+title: BVM
+tagline: Bun version manager.
+year: "2025"
+status: shipped
+role: Engineer
+stack:
+  - TypeScript
+  - Node
+  - CLI
+  - Bun
+links:
+  - label: GitHub
+    href: https://github.com/MrHacker26/bvm
+  - label: npm
+    href: https://www.npmjs.com/package/bunvm
+---
+
+## Overview
+
+BVM is a CLI for installing, switching, and removing Bun versions. The package on npm is `bunvm`. The binary on PATH is `bvm`.
+
+It exists because Bun itself is not a version manager. `bun upgrade` replaces what you have. It does not keep 1.1 around when 1.2 ships.
+
+## Problem
+
+A runtime that moves this fast needs an nvm-shaped tool: install any release, switch without reinstalling the world, and fail before a bad archive lands on disk.
+
+The bootstrap has to work on a machine that does not have Bun yet. That is why the CLI is Node, not Bun.
+
+## Architecture
+
+<Architecture steps="Request | Platform detect | Checksum | Extract | Symlink | Shell" />
+
+A command asks for a version. The client picks the right Bun build for the host (Apple Silicon, musl, AVX2 baseline, Rosetta). The archive is hashed before extract. Then `bun` and `bunx` are pointed at that install, and the shell PATH is written for bash, zsh, or fish.
+
+Interactive menus (Clack) are for a TTY. In CI, a version argument is required. No picker in a pipe.
+
+## Failure modes
+
+- Checksum miss → do not extract. A wrong binary is worse than a failed install.
+- Unknown platform → say so. Windows is not supported yet.
+- No TTY and no version → error. Do not guess `latest` in a script.
+- Active version uninstall → warn, then confirm. PATH should not go quiet by accident.
+
+## Tech stack
+
+- TypeScript CLI on Node 20+, bundled with tsup
+- Commander for the command surface, Clack for interactive install / use / uninstall
+- SHA-256 verification before extract
+- Shell env wiring for bash, zsh, and fish
+- Published as [`bunvm`](https://www.npmjs.com/package/bunvm)
+
+## Tradeoffs
+
+Shipping on Node means you can get Bun without already having it. The cost is a second runtime in the install path.
+
+Windows is an honest hole, not a half port. macOS and Linux are the supported surfaces.
+
+The npm name is `bunvm` so the command can stay short: `bvm`.
+
+## Lessons
+
+Version managers fail in the boring places: PATH, checksums, and the difference between a human at a prompt and a script in CI. Design those first. The install happy path is the easy part.
+
+<Callout>
+  `npm install -g bunvm`, then `bvm install latest`. Source: [GitHub](https://github.com/MrHacker26/bvm).
+</Callout>

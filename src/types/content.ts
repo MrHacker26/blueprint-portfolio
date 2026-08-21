@@ -108,6 +108,11 @@ export type Playground = {
 
 export type ProjectStatus = "shipped" | "in-progress" | "private";
 
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
 export type ProjectFrontmatter = {
   slug: string;
   title: string;
@@ -117,4 +122,5 @@ export type ProjectFrontmatter = {
   stack: string[];
   role: string;
   heroImage?: string;
+  links?: ProjectLink[];
 };

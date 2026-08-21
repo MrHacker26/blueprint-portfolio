@@ -8,6 +8,12 @@ export const history: HistoryEntry[] = [
     detail: "Public-sector platforms. Identity, integrations, production load.",
   },
   {
+    id: "2025-bvm",
+    year: "2025",
+    title: "BVM",
+    detail: "Bun version manager. Published as bunvm on npm.",
+  },
+  {
     id: "2025-refridz",
     year: "2025",
     title: "Refridz",

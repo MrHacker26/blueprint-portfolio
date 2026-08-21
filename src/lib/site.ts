@@ -5,7 +5,7 @@ export const site = {
   tagline:
     "Building TypeScript systems, RAG pipelines, and production platforms under real constraints.",
   about:
-    "I design and ship full-stack TypeScript products: public-sector platforms, React Native clients, and AI surfaces that fail closed. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
+    "I design and ship full-stack TypeScript products: CLIs, public-sector platforms, React Native clients, and AI surfaces that fail closed. This site is a working notebook of architecture, tradeoffs, and craft. Not a template.",
   url: null as string | null,
   email: "tjocz26@gmail.com",
   socials: {
@@ -96,6 +96,7 @@ export const site = {
     privateNote:
       "Sanitized write-up. Internal systems, datasets, and credentials stay off this page.",
     galleryLabel: "Gallery",
+    sourceLabel: "Source",
   },
   contact: {
     github: "GitHub",

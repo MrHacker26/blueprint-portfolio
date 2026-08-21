@@ -67,6 +67,23 @@ export default async function ProjectPage({
       <p className="mt-5 text-lg leading-relaxed text-text-muted">
         {meta.tagline}
       </p>
+      {meta.links && meta.links.length > 0 ? (
+        <ul className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[11px] tracking-[0.16em] uppercase">
+          <li className="text-text-faint">{site.projects.sourceLabel}</li>
+          {meta.links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-signal hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
       {meta.status === "private" ? <PrivateRecord /> : null}
       <CaptureFrame
         locked={meta.status === "private"}

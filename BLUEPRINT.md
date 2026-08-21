@@ -85,7 +85,7 @@ src/
     experience.ts            # stacked cards data
     skills.ts                # capability board data
     history.ts               # git-history section data
-    projects/                # rumblex.mdx, refridz.mdx, government-dashboard.mdx
+    projects/                # rumblex.mdx, refridz.mdx, government-dashboard.mdx, bvm.mdx
   hooks/
   lib/
     cn.ts
@@ -211,6 +211,7 @@ If `prefers-reduced-motion: reduce`: no looping path animations, no parallax, in
 /projects/rumblex
 /projects/refridz
 /projects/government-dashboard
+/projects/bvm
 /lab                       Hidden (not in nav, noindex)
 ```
 
@@ -260,11 +261,12 @@ Each card: company, role, duration, 2–4 *qualitative* impact lines, tech chips
 
 ### Projects
 
-Source: `src/content/projects/*.mdx` (frontmatter + body). v1 is these three only.
+Source: `src/content/projects/*.mdx` (frontmatter + body). v1 listing:
 
 | Slug | Name | One-liner | Case study must include |
 | --- | --- | --- | --- |
 | `rumblex` | RumbleX | Native iOS cloud gaming browser | Hero placeholder, architecture (iPhone → WKWebView → JS Bridge → Core Haptics), features, challenges, haptic bridge explanation, tradeoffs |
+| `bvm` | BVM | Bun version manager | CLI architecture, checksum, TTY vs CI, npm `bunvm`. Links in frontmatter. |
 | `refridz` | Refridz | Food expiry tracker | OCR pipeline, AI fallback, offline storage, reminder system, engineering decisions |
 | `government-dashboard` | Government Dashboard | Public-sector systems at scale | Problem, constraints, architecture, integrations, scale. **No confidential code, datasets, or screenshots of real PII.** |
 
@@ -290,6 +292,7 @@ Source: `src/content/history.ts`.
 | Year | Entry |
 | --- | --- |
 | 2023 | Government Systems |
+| 2025 | BVM |
 | 2025 | Refridz |
 | 2026 | RumbleX |
 
@@ -323,6 +326,7 @@ type ProjectFrontmatter = {
   stack: string[];
   role: string;
   heroImage?: string;
+  links?: { label: string; href: string }[];
 };
 
 type Skill = {
@@ -523,6 +527,7 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 **Goal:** Each project feels like an engineering post, not a Dribbble shot.
 
 - [x] **RumbleX**: div diagram: iPhone → WKWebView → JavaScript Bridge → Core Haptics. Haptic bridge written in plain language.
+- [x] **BVM**: CLI flow (request → platform → checksum → extract → symlink → shell). TTY vs CI. npm `bunvm`.
 - [x] **Refridz**: OCR → parse → AI fallback → local store → reminders. Call out offline + failure modes.
 - [x] **Government Dashboard**: problem, constraints, architecture, integrations, scale. Zero confidential artifacts.
 - [x] Reusable `src/components/projects/flow-diagram.tsx` (nodes + connectors, HTML/CSS)
@@ -652,6 +657,6 @@ Answered 18 Aug 2026. Do not re-ask.
 1. **Socials**: GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
 2. **Resume**: button visible, disabled, subtle Coming Soon until PDF exists.
 3. **Experience**: generic “Government Systems” only, 2023–Present. No confidential names or exact internal metrics.
-4. **Projects**: RumbleX, Refridz, Government Dashboard. No extras in v1.
+4. **Projects**: RumbleX, BVM, Refridz, Government Dashboard. No extras unless asked.
 5. **Domain**: `site.url = null` until a real canonical exists. No fake OG/canonical domain.
 6. **Architecture**: content-first. Identity/SEO in `site.ts`. Experience/skills/history in `content/`. Case studies in MDX. Components consume data; they do not store it.

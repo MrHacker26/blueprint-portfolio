@@ -3,12 +3,41 @@ import path from "node:path";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/projects/mdx-components";
-import type { ProjectFrontmatter, ProjectStatus } from "@/types/content";
+import type {
+  ProjectFrontmatter,
+  ProjectLink,
+  ProjectStatus,
+} from "@/types/content";
 
 const PROJECTS_DIR = path.join(process.cwd(), "src/content/projects");
 
 function isStatus(value: unknown): value is ProjectStatus {
   return value === "shipped" || value === "in-progress" || value === "private";
+}
+
+function toLinks(value: unknown, slug: string): ProjectLink[] | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if (
+    !Array.isArray(value) ||
+    !value.every(
+      (item) =>
+        item !== null &&
+        typeof item === "object" &&
+        typeof (item as { label?: unknown }).label === "string" &&
+        typeof (item as { href?: unknown }).href === "string" &&
+        (item as { href: string }).href.startsWith("https://"),
+    )
+  ) {
+    throw new Error(`Invalid links in ${slug}.mdx`);
+  }
+
+  return value.map((item) => ({
+    label: (item as ProjectLink).label,
+    href: (item as ProjectLink).href,
+  }));
 }
 
 function toFrontmatter(
@@ -36,6 +65,7 @@ function toFrontmatter(
     stack: data.stack,
     role: data.role,
     heroImage: typeof data.heroImage === "string" ? data.heroImage : undefined,
+    links: toLinks(data.links, slug),
   };
 }
 
@@ -64,7 +94,9 @@ export function getProjects(): ProjectFrontmatter[] {
       const { data } = matter(source);
       return toFrontmatter(data as Record<string, unknown>, slug);
     })
-    .sort((a, b) => b.year.localeCompare(a.year));
+    .sort(
+      (a, b) => b.year.localeCompare(a.year) || a.slug.localeCompare(b.slug),
+    );
 }
 
 export function getProjectMeta(slug: string) {
