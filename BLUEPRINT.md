@@ -36,7 +36,7 @@ Fresh `create-next-app` on **Next.js 16.3.1** (App Router), **React 19**, **Tail
 | `src/app/page.tsx` | Phase 1: quiet canvas (`site.name` / `site.role`) |
 | `src/app/globals.css` | Blueprint tokens + grid utilities |
 | shadcn / Framer Motion / Lucide | Installed (button, separator). MDX not yet |
-| Real content (bio, jobs, links, resume) | Placeholders locked: see Content inventory |
+| Real content (bio, jobs, links) | Placeholders locked: see Content inventory |
 
 Path alias: `@/*` → `./src/*`. Keep the `src/` layout. Do not move to a root `app/` folder.
 
@@ -89,11 +89,10 @@ src/
   hooks/
   lib/
     cn.ts
-    site.ts                  # identity, socials, SEO, resume, nav, url
+    site.ts                  # identity, socials, SEO, nav, url
     projects.ts              # MDX loader only: not a second source of copy
   types/
 public/
-  resume.pdf                 # add later; button stays disabled until then
   og.png                     # generated in SEO phase
   images/projects/           # placeholders until real shots exist
 ```
@@ -108,7 +107,7 @@ Change GitHub, LinkedIn, email, or domain later → edit **one file**, not compo
 
 | What | File | Owner |
 | --- | --- | --- |
-| Name, role, location, tagline, about, socials, SEO, canonical URL, resume flag, nav, status pills | `src/lib/site.ts` | Site identity |
+| Name, role, location, tagline, about, socials, SEO, canonical URL, nav, status pills | `src/lib/site.ts` | Site identity |
 | Experience cards | `src/content/experience.ts` | Content |
 | Skills board | `src/content/skills.ts` | Content |
 | Git history entries | `src/content/history.ts` | Content |
@@ -122,7 +121,7 @@ Change GitHub, LinkedIn, email, or domain later → edit **one file**, not compo
 - Project **listing** metadata (slug, title, tagline, year, stack, status) lives in MDX frontmatter. `lib/projects.ts` only reads it. Do not duplicate that list in `site.ts`.
 - `site.ts` does not import experience/skills. Sections import the content modules directly.
 
-When real links/PDF/domain arrive, update `site.ts` (and drop in `public/resume.pdf`). Do not restyle.
+When real links/domain arrive, update `site.ts`. Do not restyle.
 
 ---
 
@@ -237,7 +236,7 @@ Placeholders are **locked** for v1 build. Swap values in config/content files la
 | GitHub | `null` (placeholder) |
 | LinkedIn | `null` (placeholder) |
 | Site URL | `null` (placeholder domain: no canonical until real URL exists) |
-| Resume | `available: false`: button **visible**, **disabled**, subtle **Coming Soon** |
+| Resume | None. Site, GitHub, and LinkedIn are the surface. |
 | Short about | Placeholder 2–3 sentences in `site.about`. Honest, generic, no fake bio claims. Refine later in `site.ts` only. |
 
 ### Live status pills (hero)
@@ -351,12 +350,6 @@ export const site = {
     github: null as string | null,
     linkedin: null as string | null,
   },
-  resume: {
-    available: false,
-    href: "/resume.pdf",
-    label: "Download Resume",
-    pendingLabel: "Coming Soon",
-  },
   statusPills: ["Shipping Products", "TypeScript", "Bun", "RAG"],
   nav: [/* About, Experience, Projects, Skills, Contact */],
   seo: {
@@ -381,7 +374,7 @@ Experience and skills live in `src/content/*.ts`. Projects live in MDX + frontma
 - Client JS stays small. First Load JS under **180KB** where practical. Do not import Framer Motion in the root layout.
 - Static generation for all current routes.
 - Copy is calm, specific, and first-person. No “passionate developer” filler.
-- No hardcoded personal or site metadata in components. If a string can change later (name, URL, resume, project title), it belongs in `site.ts` or `content/`.
+- No hardcoded personal or site metadata in components. If a string can change later (name, URL, project title), it belongs in `site.ts` or `content/`.
 
 ---
 
@@ -453,8 +446,7 @@ Left:
 - [x] Name (display)
 - [x] Role (mono label)
 - [x] Tagline
-- [x] CTAs: View Projects (`#projects`), Download Resume from `site.resume`
-  - If `available === false`: button visible, disabled, `aria-disabled`, subtle **Coming Soon** (tooltip or mono hint). Do not 404 `/resume.pdf`.
+- [x] CTA: View Projects (`#projects`). No resume download.
 - [x] Status pills with a *very* slow opacity/position drift (disabled under reduced motion)
 
 Right:
@@ -561,7 +553,7 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 **Goal:** Hidden craft. Tasteful, not meme-heavy.
 
 - [x] `Cmd/Ctrl + K` command palette (shadcn `command` / `cmdk` is allowed here)
-  - Search projects, skills, resume, sections
+  - Search projects, skills, sections
   - Trap focus, Esc closes, overlay
 - [x] Konami code → `/lab`
 - [x] `/lab`: hidden developer page: stack, build stages, maybe a tiny terminal log of this site’s own architecture. `robots noindex`. Not linked in nav.
@@ -587,7 +579,7 @@ Content from `src/content/experience.ts` and `src/content/skills.ts`. About copy
 - [x] Keyboard pass: nav, drawers, disclosures, palette, playground
 - [x] Bundle check: drop unused client islands; dynamic import palette
 - [x] Lighthouse 95+ on homepage and one case study (local production build)
-- [ ] When real resume/socials/domain exist: update `site.ts` + add `public/resume.pdf` only: flip `resume.available` to `true`
+- [ ] When a real domain exists: set `site.url` only
 - [x] Delete leftover `public/next.svg` starter assets if unused
 
 **Done when:** the Final Polish Checklist below is all checked.
@@ -645,7 +637,7 @@ Stay on Phase N. Tweak: [what you saw / what you want].
 When you have real copy (GitHub, email, PDF, domain, about):
 
 ```
-Update src/lib/site.ts only (and public/resume.pdf if attaching). Do not restyle. Do not touch components.
+Update src/lib/site.ts only. Do not restyle. Do not touch components.
 ```
 
 ---
@@ -655,7 +647,7 @@ Update src/lib/site.ts only (and public/resume.pdf if attaching). Do not restyle
 Answered 18 Aug 2026. Do not re-ask.
 
 1. **Socials**: GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
-2. **Resume**: button visible, disabled, subtle Coming Soon until PDF exists.
+2. **Resume**: no download button. The site, GitHub, and LinkedIn are the surface.
 3. **Experience**: generic “Government Systems” only, 2023–Present. No confidential names or exact internal metrics.
 4. **Projects**: RumbleX, BVM, Refridz, Government Dashboard. No extras unless asked.
 5. **Domain**: `site.url = null` until a real canonical exists. No fake OG/canonical domain.

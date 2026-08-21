@@ -12,12 +12,6 @@ export const site = {
     github: "https://github.com/MrHacker26",
     linkedin: "https://linkedin.com/in/tarun-joshi26",
   },
-  resume: {
-    available: false,
-    href: "/resume.pdf",
-    label: "Download Resume",
-    pendingLabel: "Coming Soon",
-  },
   statusPills: ["Shipping Products", "TypeScript", "Bun", "RAG"],
   cta: {
     viewProjects: "View Projects",
@@ -120,7 +114,6 @@ export const site = {
       navigate: "Navigate",
       projects: "Projects",
       skills: "Skills",
-      resume: "Resume",
     },
   },
 } as const;

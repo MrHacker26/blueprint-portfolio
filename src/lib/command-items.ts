@@ -27,16 +27,5 @@ export function getCommandItems(): CommandEntry[] {
     href: sectionHref("skills"),
   }));
 
-  const resume: CommandEntry[] = [
-    {
-      id: "resume",
-      group: "resume",
-      label: site.resume.label,
-      href: site.resume.href,
-      hint: site.resume.available ? undefined : site.resume.pendingLabel,
-      disabled: !site.resume.available,
-    },
-  ];
-
-  return [...navigate, ...projects, ...skillItems, ...resume];
+  return [...navigate, ...projects, ...skillItems];
 }

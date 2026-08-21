@@ -25,34 +25,6 @@ export function Hero() {
             <Button asChild size="lg" className="h-10 rounded-full px-5">
               <a href={sectionHref("projects")}>{site.cta.viewProjects}</a>
             </Button>
-            {site.resume.available ? (
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="h-10 rounded-full px-5"
-              >
-                <a href={site.resume.href}>{site.resume.label}</a>
-              </Button>
-            ) : (
-              <Button
-                type="button"
-                variant="outline"
-                size="lg"
-                disabled
-                aria-disabled="true"
-                aria-describedby="resume-pending"
-                className="h-10 rounded-full px-5 disabled:opacity-70"
-              >
-                <span>{site.resume.label}</span>
-                <span
-                  id="resume-pending"
-                  className="font-mono text-[10px] tracking-[0.12em] text-text-faint uppercase"
-                >
-                  {site.resume.pendingLabel}
-                </span>
-              </Button>
-            )}
           </div>
           <ul
             aria-label={site.a11y.liveStatus}
