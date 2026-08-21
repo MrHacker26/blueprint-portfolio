@@ -249,13 +249,13 @@ Owned by `site.statusPills`:
 
 ### Experience (stacked cards)
 
-Source: `src/content/experience.ts`. One card. Generic wording only. **No real company names, no confidential metrics, no fake percentages.**
+Source: `src/content/experience.ts`. One card. Employer is real. **No confidential client names, no exact internal metrics, no fake percentages.**
 
 Each card: company, role, duration, 2–4 *qualitative* impact lines, tech chips, expandable engineering notes.
 
 | # | Company | Role | Dates | Impact (qualitative) | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Government Systems | Senior Full Stack Engineer | 2023–Present | Production-scale public-sector platforms; multi-system composition; RAG that fails closed | Constraints, architecture, scale. Zero confidential code, datasets, or internal tool names. |
+| 1 | Prodios Labs | Senior Full Stack Engineer | 2023–Present | Production-scale public-sector platforms; multi-system composition; RAG that fails closed | Constraints, architecture, scale. Zero confidential code, datasets, or internal tool names. |
 
 ### Projects
 
@@ -648,7 +648,7 @@ Answered 18 Aug 2026. Do not re-ask.
 
 1. **Socials**: GitHub, LinkedIn, email stay `null` placeholders. Location is Dehradun, Uttarakhand, India.
 2. **Resume**: no download button. The site, GitHub, and LinkedIn are the surface.
-3. **Experience**: generic “Government Systems” only, 2023–Present. No confidential names or exact internal metrics.
+3. **Experience**: Prodios Labs, 2023–Present. Work copy stays generic public-sector. No confidential client or department names, no exact internal metrics.
 4. **Projects**: RumbleX, BVM, Refridz, Government Dashboard. No extras unless asked.
 5. **Domain**: `site.url = null` until a real canonical exists. No fake OG/canonical domain.
 6. **Architecture**: content-first. Identity/SEO in `site.ts`. Experience/skills/history in `content/`. Case studies in MDX. Components consume data; they do not store it.
