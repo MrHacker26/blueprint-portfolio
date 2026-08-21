@@ -15,6 +15,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <FrameMarks />
       <CaptureFrame
         locked={project.status === "private"}
+        src={project.heroImage}
+        alt={project.heroAlt}
+        caption={
+          project.status === "private" && project.heroImage
+            ? site.projects.schematicCaption
+            : undefined
+        }
+        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
         className="aspect-[16/10] w-full rounded-none rounded-t-[2px] border-0 border-b"
       />
       <div className="flex flex-1 flex-col px-5 py-5">

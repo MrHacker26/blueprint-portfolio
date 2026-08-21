@@ -65,6 +65,7 @@ function toFrontmatter(
     stack: data.stack,
     role: data.role,
     heroImage: typeof data.heroImage === "string" ? data.heroImage : undefined,
+    heroAlt: typeof data.heroAlt === "string" ? data.heroAlt : undefined,
     links: toLinks(data.links, slug),
   };
 }

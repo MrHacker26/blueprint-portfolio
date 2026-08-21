@@ -76,6 +76,14 @@ export default async function ProjectPage({
       {meta.status === "private" ? <PrivateRecord /> : null}
       <CaptureFrame
         locked={meta.status === "private"}
+        src={meta.heroImage}
+        alt={meta.heroAlt}
+        caption={
+          meta.status === "private" && meta.heroImage
+            ? site.projects.schematicCaption
+            : undefined
+        }
+        sizes="(min-width: 768px) 48rem, 100vw"
         className="mt-10 aspect-[16/9] w-full"
       />
       <ul className="mt-6 flex flex-wrap gap-2">

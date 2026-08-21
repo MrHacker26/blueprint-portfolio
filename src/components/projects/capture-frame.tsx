@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
@@ -7,12 +8,41 @@ type CaptureFrameProps = {
   locked?: boolean;
   className?: string;
   caption?: string;
+  src?: string;
+  alt?: string;
+  sizes?: string;
 };
+
+function FrameTicks() {
+  return (
+    <>
+      <span
+        aria-hidden="true"
+        className="border-signal/50 bg-bg absolute top-2 left-2 z-10 size-1.5 border"
+      />
+      <span
+        aria-hidden="true"
+        className="border-signal/50 bg-bg absolute top-2 right-2 z-10 size-1.5 border"
+      />
+      <span
+        aria-hidden="true"
+        className="border-signal/50 bg-bg absolute bottom-2 left-2 z-10 size-1.5 border"
+      />
+      <span
+        aria-hidden="true"
+        className="border-signal/50 bg-bg absolute right-2 bottom-2 z-10 size-1.5 border"
+      />
+    </>
+  );
+}
 
 export function CaptureFrame({
   locked = false,
   className,
   caption,
+  src,
+  alt,
+  sizes = "100vw",
 }: CaptureFrameProps) {
   const label =
     caption ??
@@ -22,40 +52,44 @@ export function CaptureFrame({
     <figure
       className={cn(
         "border-line bg-bg-elevated/40 relative flex items-center justify-center overflow-hidden rounded-[2px] border",
-        locked ? "border-dashed" : undefined,
+        locked && !src ? "border-dashed" : undefined,
         className,
       )}
     >
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute top-2 left-2 size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute top-2 right-2 size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute bottom-2 left-2 size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute right-2 bottom-2 size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-3 opacity-30"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--grid) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--grid) 1px, transparent 1px)
-          `,
-          backgroundSize: "16px 16px",
-        }}
-      />
-      <figcaption className="relative px-4 text-center font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
-        {label}
-      </figcaption>
+      <FrameTicks />
+      {src ? (
+        <>
+          <Image
+            src={src}
+            alt={alt ?? site.a11y.projectHero}
+            fill
+            sizes={sizes}
+            className="object-cover"
+          />
+          {caption ? (
+            <figcaption className="absolute bottom-3 left-3 z-10 bg-bg/80 px-2 py-1 font-mono text-[10px] tracking-[0.16em] text-text-faint uppercase">
+              {caption}
+            </figcaption>
+          ) : null}
+        </>
+      ) : (
+        <>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-3 opacity-30"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, var(--grid) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid) 1px, transparent 1px)
+              `,
+              backgroundSize: "16px 16px",
+            }}
+          />
+          <figcaption className="relative px-4 text-center font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
+            {label}
+          </figcaption>
+        </>
+      )}
     </figure>
   );
 }

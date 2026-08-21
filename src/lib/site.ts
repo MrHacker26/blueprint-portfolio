@@ -79,6 +79,7 @@ export const site = {
   projects: {
     capturePending: "Capture pending",
     privateCapture: "Not pictured",
+    schematicCaption: "Schematic. Not a production capture.",
     privateGallery: "Captures stay off the record.",
     architectureLabel: "Architecture",
     architecturePending: "Diagram in the next pass.",

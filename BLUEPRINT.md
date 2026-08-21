@@ -324,6 +324,7 @@ type ProjectFrontmatter = {
   stack: string[];
   role: string;
   heroImage?: string;
+  heroAlt?: string;
   links?: { label: string; href: string }[];
 };
 
