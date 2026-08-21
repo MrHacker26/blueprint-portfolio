@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-28 pb-16 sm:px-10 lg:px-16"
+      className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-32 pb-16 sm:px-10 sm:pt-36 lg:px-16"
     >
       <HeroField />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">

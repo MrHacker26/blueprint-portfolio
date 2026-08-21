@@ -128,6 +128,15 @@ export function sectionLabel(id: (typeof site.sections)[number]["id"]) {
   return section?.label ?? id;
 }
 
+export function siteInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
 export function getBuildStage(progress: number) {
   const p = Math.min(1, Math.max(0, progress));
   return (

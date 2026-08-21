@@ -13,7 +13,7 @@ export function HomeSection({ id, label, children }: HomeSectionProps) {
       id={id}
       aria-labelledby={`${id}-heading`}
       className={cn(
-        "scroll-mt-28 px-6 py-24 sm:px-10 lg:px-16",
+        "scroll-mt-32 px-6 py-24 sm:px-10 sm:scroll-mt-36 lg:px-16",
         children ? undefined : "min-h-[70svh]",
       )}
     >

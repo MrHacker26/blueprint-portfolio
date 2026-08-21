@@ -17,7 +17,14 @@ import { useActiveSection } from "@/hooks/use-active-section";
 import { useScrollProgress } from "@/hooks/use-scroll-progress";
 import { cn } from "@/lib/cn";
 import { OPEN_COMMAND_EVENT } from "@/lib/commands";
-import { getBuildStage, navIds, navItems, sectionHref, site } from "@/lib/site";
+import {
+  getBuildStage,
+  navIds,
+  navItems,
+  sectionHref,
+  site,
+  siteInitials,
+} from "@/lib/site";
 
 function indexLabel(index: number) {
   return String(index + 1).padStart(2, "0");
@@ -51,15 +58,19 @@ export function FloatingNav() {
 
   return (
     <header className="pointer-events-none fixed top-4 right-0 left-0 z-40 px-4 sm:px-6">
-      <div className="mx-auto flex w-full max-w-6xl items-start justify-between gap-4">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4">
         <NavFrame className="pointer-events-auto">
-          <a href="/" className="block px-3 py-2">
-            <p className="font-mono text-[10px] tracking-[0.18em] text-text-faint uppercase">
+          <a
+            href="/"
+            aria-label={site.name}
+            className="flex items-baseline gap-2 px-3 py-2"
+          >
+            <span className="font-mono text-[10px] tracking-[0.18em] text-text-faint uppercase">
               {site.chrome.navKicker}
-            </p>
-            <p className="mt-0.5 font-sans text-sm font-medium tracking-tight text-foreground">
-              {site.name}
-            </p>
+            </span>
+            <span className="font-mono text-[12px] tracking-[0.14em] text-foreground">
+              {siteInitials(site.name)}
+            </span>
           </a>
         </NavFrame>
 
