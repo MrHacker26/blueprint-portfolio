@@ -113,6 +113,8 @@ export const site = {
     placeholder: "Search the system...",
     empty: "No match.",
     hotkey: "⌘K",
+    kicker: "cmd.palette",
+    footerEsc: "esc",
     groups: {
       navigate: "Navigate",
       projects: "Projects",
