@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
@@ -23,9 +24,7 @@ export function FrameCta({
     >
       <FrameMarks />
       {children}
-      <span aria-hidden="true" className="font-mono text-[11px] text-signal">
-        →
-      </span>
+      <ChevronRightIcon aria-hidden="true" className="text-signal size-3.5" />
     </a>
   );
 }
