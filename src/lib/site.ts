@@ -90,6 +90,8 @@ export const site = {
     sourceLabel: "Source",
   },
   contact: {
+    intro:
+      "Email is the fastest path. GitHub and LinkedIn if you want the paper trail.",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",

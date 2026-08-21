@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode, useState } from "react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons/social";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/social";
 import { FrameButton } from "@/components/ui/frame-cta";
 import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
@@ -39,16 +39,40 @@ export function ContactCard() {
   }
 
   return (
-    <div className="border-line bg-bg/70 relative max-w-xl rounded-[2px] border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
+    <div className="border-line bg-bg/70 relative max-w-2xl rounded-[2px] border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
       <FrameMarks />
       <p className="font-mono text-[11px] tracking-[0.18em] text-text-faint uppercase">
         {site.location}
       </p>
-      <p className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
-        {site.name}
+      <p className="mt-4 max-w-lg text-base leading-relaxed text-text-muted">
+        {site.contact.intro}
       </p>
-      <p className="mt-1 text-sm text-text-muted">{site.role}</p>
-      <ul className="mt-8 flex flex-col gap-3">
+      {email ? (
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${email}`}
+            className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+          >
+            {email}
+          </a>
+          <FrameButton
+            className="px-3 py-1.5 font-mono text-[11px] tracking-[0.14em] uppercase"
+            aria-label={site.a11y.copyEmail}
+            onClick={() => {
+              void copyEmail();
+            }}
+          >
+            {site.contact.copy}
+          </FrameButton>
+        </div>
+      ) : (
+        <p className="mt-8 font-mono text-sm tracking-wide text-text-faint uppercase">
+          {site.contact.email}
+          <span aria-hidden="true"> · </span>
+          {site.contact.pending}
+        </p>
+      )}
+      <ul className="mt-8 flex flex-wrap gap-2">
         <li>
           <ContactChip
             icon={<GitHubIcon className="size-4" />}
@@ -64,24 +88,6 @@ export function ContactCard() {
             href={site.socials.linkedin}
             external
           />
-        </li>
-        <li className="flex flex-wrap items-center gap-2">
-          <ContactChip
-            icon={<MailIcon className="size-4" />}
-            label={email ?? site.contact.email}
-            href={email ? `mailto:${email}` : null}
-          />
-          {email ? (
-            <FrameButton
-              className="px-3 py-1.5 font-mono text-[11px] tracking-[0.14em] uppercase"
-              aria-label={site.a11y.copyEmail}
-              onClick={() => {
-                void copyEmail();
-              }}
-            >
-              {site.contact.copy}
-            </FrameButton>
-          ) : null}
         </li>
       </ul>
       <p
