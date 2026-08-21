@@ -190,7 +190,7 @@ If `prefers-reduced-motion: reduce`: no looping path animations, no parallax, in
 
 ### Surfaces
 
-- **Glass nav:** `backdrop-blur` + 1px `--line` border + `bg` at ~70% opacity.
+- **Glass nav:** split floating frames, corner ticks, numbered links. `backdrop-blur` + 1px `--line` + `bg` at ~70%. Not a pill.
 - **Engineering card:** hairline border, 1px inner highlight, no drop-shadow blobs. Hover = 2–4px translateY + slightly brighter border.
 - **Focus:** 2px accent ring, 2px offset. Never `outline-none` without a replacement.
 

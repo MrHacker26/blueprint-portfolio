@@ -35,6 +35,7 @@ export const site = {
     { id: "contact", label: "Contact", inNav: true },
   ],
   chrome: {
+    navKicker: "nav.index",
     buildStages: [
       { threshold: 0.2, label: "Compiling..." },
       { threshold: 0.5, label: "Linking..." },
