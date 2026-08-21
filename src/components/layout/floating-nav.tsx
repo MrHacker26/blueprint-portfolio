@@ -4,6 +4,7 @@ import { MenuIcon, SearchIcon, XIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import {
   Sheet,
   SheetClose,
@@ -20,29 +21,6 @@ import { getBuildStage, navIds, navItems, sectionHref, site } from "@/lib/site";
 
 function indexLabel(index: number) {
   return String(index + 1).padStart(2, "0");
-}
-
-function FrameMarks() {
-  return (
-    <>
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute -top-px -left-px size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute -top-px -right-px size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute -bottom-px -left-px size-1.5 border"
-      />
-      <span
-        aria-hidden="true"
-        className="border-signal/50 bg-bg absolute -right-px -bottom-px size-1.5 border"
-      />
-    </>
-  );
 }
 
 function NavFrame({

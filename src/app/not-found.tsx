@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { FrameCta } from "@/components/ui/frame-cta";
 import { site } from "@/lib/site";
 
 export default function NotFound() {
@@ -14,12 +14,7 @@ export default function NotFound() {
         {site.chrome.notFound.body}
       </p>
       <p className="mt-8">
-        <Link
-          href="/"
-          className="font-mono text-[12px] tracking-wide text-signal hover:text-foreground"
-        >
-          {site.chrome.notFound.action}
-        </Link>
+        <FrameCta href="/">{site.chrome.notFound.action}</FrameCta>
       </p>
     </article>
   );

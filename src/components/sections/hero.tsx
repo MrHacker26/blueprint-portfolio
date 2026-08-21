@@ -1,6 +1,6 @@
 import { BlueprintCard } from "@/components/animations/blueprint-card";
 import { HeroField } from "@/components/animations/hero-field";
-import { Button } from "@/components/ui/button";
+import { FrameCta } from "@/components/ui/frame-cta";
 import { sectionHref, site } from "@/lib/site";
 
 export function Hero() {
@@ -22,9 +22,9 @@ export function Hero() {
             {site.tagline}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg" className="h-10 rounded-full px-5">
-              <a href={sectionHref("projects")}>{site.cta.viewProjects}</a>
-            </Button>
+            <FrameCta href={sectionHref("projects")}>
+              {site.cta.viewProjects}
+            </FrameCta>
           </div>
           <ul
             aria-label={site.a11y.liveStatus}
@@ -33,7 +33,7 @@ export function Hero() {
             {site.statusPills.map((pill, index) => (
               <li
                 key={pill}
-                className="pill-drift border-line bg-bg/50 flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[11px] tracking-wide text-text-muted"
+                className="pill-drift border-line bg-bg/50 flex items-center gap-2 rounded-[2px] border px-3 py-1 font-mono text-[11px] tracking-wide text-text-muted"
                 style={{ animationDelay: `${index * 1.1}s` }}
               >
                 {index === 0 ? (

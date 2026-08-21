@@ -2,7 +2,7 @@
 
 import { type ReactNode, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons/social";
-import { Button } from "@/components/ui/button";
+import { FrameButton } from "@/components/ui/frame-cta";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -38,7 +38,7 @@ export function ContactCard() {
   }
 
   return (
-    <div className="border-line bg-bg/70 max-w-xl rounded-2xl border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
+    <div className="border-line bg-bg/70 max-w-xl rounded-[2px] border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
       <p className="font-mono text-[11px] tracking-[0.18em] text-text-faint uppercase">
         {site.location}
       </p>
@@ -70,18 +70,15 @@ export function ContactCard() {
             href={email ? `mailto:${email}` : null}
           />
           {email ? (
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              className="rounded-full"
+            <FrameButton
+              className="px-3 py-1.5 font-mono text-[11px] tracking-[0.14em] uppercase"
               aria-label={site.a11y.copyEmail}
               onClick={() => {
                 void copyEmail();
               }}
             >
               {site.contact.copy}
-            </Button>
+            </FrameButton>
           ) : null}
         </li>
       </ul>
@@ -104,7 +101,7 @@ type ContactChipProps = {
 
 function ContactChip({ icon, label, href, external }: ContactChipProps) {
   const className = cn(
-    "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm",
+    "inline-flex items-center gap-2 rounded-[2px] border px-3 py-2 text-sm",
     href
       ? "border-line text-foreground hover:border-signal/40"
       : "border-line text-text-faint",
