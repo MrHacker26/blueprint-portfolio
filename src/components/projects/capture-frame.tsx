@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -20,7 +21,7 @@ export function CaptureFrame({
   return (
     <figure
       className={cn(
-        "border-line bg-bg-elevated/40 relative flex items-center justify-center overflow-hidden rounded-md border",
+        "border-line bg-bg-elevated/40 relative flex items-center justify-center overflow-hidden rounded-[2px] border",
         locked ? "border-dashed" : undefined,
         className,
       )}
@@ -61,7 +62,8 @@ export function CaptureFrame({
 
 export function PrivateRecord({ children }: { children?: ReactNode }) {
   return (
-    <aside className="border-line mt-6 rounded-lg border border-dashed px-5 py-5">
+    <aside className="border-line relative mt-6 rounded-[2px] border border-dashed px-5 py-5">
+      <FrameMarks />
       <p className="font-mono text-[10px] tracking-[0.2em] text-text-faint uppercase">
         {site.projectStatus.private}
       </p>

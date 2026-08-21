@@ -1,4 +1,5 @@
 import { ChevronDownIcon } from "lucide-react";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 import type { Experience } from "@/types/content";
@@ -12,12 +13,13 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
     <article>
       <details
         className={cn(
-          "border-line bg-bg-elevated/60 group rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
+          "border-line bg-bg-elevated/60 group relative rounded-[2px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
           "transition-[transform,border-color] duration-base ease-out-premium motion-safe:hover:-translate-y-1",
           "hover:border-signal/25 open:border-signal/35",
         )}
       >
-        <summary className="w-full cursor-pointer rounded-lg px-5 py-5 text-left sm:px-6">
+        <FrameMarks />
+        <summary className="w-full cursor-pointer rounded-[2px] px-5 py-5 text-left sm:px-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
@@ -52,7 +54,7 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
             {item.stack.map((tech) => (
               <li
                 key={tech}
-                className="border-line rounded-full border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
+                className="border-line rounded-[2px] border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
               >
                 {tech}
               </li>

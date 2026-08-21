@@ -205,7 +205,7 @@ function NavLink({
       onClick={onClick}
       className={cn(
         "relative flex items-baseline gap-2 transition-colors duration-base ease-out-premium",
-        stacked ? "rounded-md px-3 py-3" : "px-2.5 py-1.5",
+        stacked ? "rounded-[2px] px-3 py-3" : "px-2.5 py-1.5",
         active ? "text-foreground" : "text-text-muted hover:text-foreground",
       )}
     >

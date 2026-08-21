@@ -93,7 +93,7 @@ export default async function ProjectPage({
         {meta.stack.map((item) => (
           <li
             key={item}
-            className="border-line rounded-full border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
+            className="border-line rounded-[2px] border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
           >
             {item}
           </li>

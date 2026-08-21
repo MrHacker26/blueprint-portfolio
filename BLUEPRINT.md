@@ -192,7 +192,7 @@ If `prefers-reduced-motion: reduce`: no looping path animations, no parallax, in
 
 - **Glass nav:** split floating frames, corner ticks, numbered links. `backdrop-blur` + 1px `--line` + `bg` at ~70%. Not a pill.
 - **Frame CTA:** same language as the nav. Sharp corners, ticks, hairline. Not a filled rounded pill.
-- **Engineering card:** hairline border, 1px inner highlight, no drop-shadow blobs. Hover = 2–4px translateY + slightly brighter border.
+- **Engineering card:** hairline border, 1px inner highlight, corner ticks, `rounded-[2px]`. No drop-shadow blobs. Hover = 2–4px translateY + slightly brighter border.
 - **Focus:** 2px accent ring, 2px offset. Never `outline-none` without a replacement.
 
 ---

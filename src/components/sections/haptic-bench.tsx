@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { PipelineTrace } from "@/components/sections/pipeline-trace";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { playground } from "@/content/playground";
 import { cn } from "@/lib/cn";
 import { playHaptic } from "@/lib/haptic-bench";
@@ -51,28 +52,13 @@ export function HapticBench() {
           {bench.summary}
         </p>
 
-        <div className="border-line bg-bg-elevated/40 relative mt-8 rounded-md border p-4 sm:p-5">
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute top-2 left-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute top-2 right-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute bottom-2 left-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute right-2 bottom-2 size-1.5 border"
-          />
+        <div className="border-line bg-bg-elevated/40 relative mt-8 rounded-[2px] border p-4 sm:p-5">
+          <FrameMarks />
           <div
             key={nonce}
             aria-hidden="true"
             className={cn(
-              "border-signal/40 mx-auto mb-5 flex size-16 items-center justify-center rounded-md border",
+              "border-signal/40 mx-auto mb-5 flex size-16 items-center justify-center rounded-[2px] border",
               pulse && "haptic-pulse",
             )}
             style={
@@ -108,7 +94,7 @@ export function HapticBench() {
                     }}
                     aria-pressed={active}
                     className={cn(
-                      "rounded-full border px-3 py-1 font-mono text-[11px] tracking-wide transition-colors duration-base ease-out-premium motion-reduce:transition-none",
+                      "rounded-[2px] border px-3 py-1 font-mono text-[11px] tracking-wide transition-colors duration-base ease-out-premium motion-reduce:transition-none",
                       active
                         ? "border-signal/50 bg-signal-dim text-foreground"
                         : "border-line text-text-muted hover:border-signal/30 hover:text-foreground",

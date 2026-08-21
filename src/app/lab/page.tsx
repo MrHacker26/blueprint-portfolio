@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { lab } from "@/content/lab";
 import { site } from "@/lib/site";
 
@@ -22,7 +23,8 @@ export default function LabPage() {
       <p className="mt-4 text-sm leading-relaxed text-text-muted">
         {lab.intro}
       </p>
-      <div className="border-line bg-bg-elevated/50 mt-10 rounded-lg border p-5 font-mono text-[13px] leading-relaxed">
+      <div className="border-line bg-bg-elevated/50 relative mt-10 rounded-[2px] border p-5 font-mono text-[13px] leading-relaxed">
+        <FrameMarks />
         <p className="text-text-faint">
           <span className="text-signal">$</span> {lab.boot}
         </p>

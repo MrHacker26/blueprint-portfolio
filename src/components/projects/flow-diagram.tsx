@@ -21,7 +21,7 @@ export function FlowDiagram({ nodes, label }: FlowDiagramProps) {
 
         return (
           <li key={node} className="flex w-full flex-col items-center">
-            <div className="border-signal/35 bg-bg/60 relative w-full rounded-md border px-4 py-3">
+            <div className="border-signal/35 bg-bg/60 relative w-full rounded-[2px] border px-4 py-3">
               <span
                 aria-hidden="true"
                 className="border-signal/40 absolute top-1 left-1 size-1 border"

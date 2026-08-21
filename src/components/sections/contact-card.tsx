@@ -3,6 +3,7 @@
 import { type ReactNode, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons/social";
 import { FrameButton } from "@/components/ui/frame-cta";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -38,7 +39,8 @@ export function ContactCard() {
   }
 
   return (
-    <div className="border-line bg-bg/70 max-w-xl rounded-[2px] border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
+    <div className="border-line bg-bg/70 relative max-w-xl rounded-[2px] border p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:p-8">
+      <FrameMarks />
       <p className="font-mono text-[11px] tracking-[0.18em] text-text-faint uppercase">
         {site.location}
       </p>

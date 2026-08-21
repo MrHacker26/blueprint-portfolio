@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { PipelineTrace } from "@/components/sections/pipeline-trace";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { playground } from "@/content/playground";
 import { cn } from "@/lib/cn";
 import { parseLabel } from "@/lib/ocr-bench";
@@ -31,23 +32,8 @@ export function OcrBench() {
           {bench.summary}
         </p>
 
-        <div className="border-line bg-bg-elevated/40 relative mt-8 rounded-md border p-4 sm:p-5">
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute top-2 left-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute top-2 right-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute bottom-2 left-2 size-1.5 border"
-          />
-          <span
-            aria-hidden="true"
-            className="border-signal/50 bg-bg absolute right-2 bottom-2 size-1.5 border"
-          />
+        <div className="border-line bg-bg-elevated/40 relative mt-8 rounded-[2px] border p-4 sm:p-5">
+          <FrameMarks />
           <label
             htmlFor="ocr-bench-input"
             className="font-mono text-[10px] tracking-[0.16em] text-text-faint uppercase"
@@ -61,7 +47,7 @@ export function OcrBench() {
             placeholder={bench.inputPlaceholder}
             rows={3}
             spellCheck={false}
-            className="border-line bg-bg/50 mt-3 w-full resize-none rounded-md border px-3 py-2 font-mono text-sm text-foreground outline-none placeholder:text-text-faint focus-visible:border-signal focus-visible:ring-3 focus-visible:ring-signal/40"
+            className="border-line bg-bg/50 mt-3 w-full resize-none rounded-[2px] border px-3 py-2 font-mono text-sm text-foreground outline-none placeholder:text-text-faint focus-visible:border-signal focus-visible:ring-3 focus-visible:ring-signal/40"
           />
         </div>
 
@@ -78,7 +64,7 @@ export function OcrBench() {
                   onClick={() => setValue(sample.value)}
                   aria-pressed={active}
                   className={cn(
-                    "rounded-full border px-3 py-1 font-mono text-[11px] tracking-wide transition-colors duration-base ease-out-premium motion-reduce:transition-none",
+                    "rounded-[2px] border px-3 py-1 font-mono text-[11px] tracking-wide transition-colors duration-base ease-out-premium motion-reduce:transition-none",
                     active
                       ? "border-signal/50 bg-signal-dim text-foreground"
                       : "border-line text-text-muted hover:border-signal/30 hover:text-foreground",

@@ -34,7 +34,7 @@ export function CommandPalette({
       title={site.a11y.commandPalette}
       description={site.command.placeholder}
       overlayClassName="bg-bg/80 backdrop-blur-md"
-      className="border-line bg-bg-elevated top-[18%] overflow-hidden rounded-lg p-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ring-0 sm:max-w-xl"
+      className="border-line bg-bg-elevated top-[18%] overflow-hidden rounded-[2px] p-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ring-0 sm:max-w-xl"
     >
       <div className="relative">
         <span

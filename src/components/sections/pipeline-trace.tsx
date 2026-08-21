@@ -1,3 +1,4 @@
+import { FrameMarks } from "@/components/ui/frame-marks";
 import type { BenchStepState } from "@/lib/bench";
 import { cn } from "@/lib/cn";
 
@@ -25,7 +26,8 @@ export function PipelineTrace({
   tone,
 }: PipelineTraceProps) {
   return (
-    <div className="border-line bg-bg-elevated/50 rounded-lg border p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-6">
+    <div className="border-line bg-bg-elevated/50 relative rounded-[2px] border p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-6">
+      <FrameMarks />
       <p className="mb-4 font-mono text-[10px] tracking-[0.16em] text-text-faint uppercase">
         {logLabel}
       </p>
@@ -39,7 +41,7 @@ export function PipelineTrace({
               <div
                 data-state={trace.state}
                 className={cn(
-                  "w-full rounded-md border px-3 py-2 transition-colors duration-base ease-out-premium motion-reduce:transition-none",
+                  "w-full rounded-[2px] border px-3 py-2 transition-colors duration-base ease-out-premium motion-reduce:transition-none",
                   nodeClass(trace.state),
                 )}
               >

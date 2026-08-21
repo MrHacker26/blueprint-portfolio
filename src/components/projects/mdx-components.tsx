@@ -4,6 +4,7 @@ import {
   FlowDiagram,
   parseFlowSteps,
 } from "@/components/projects/flow-diagram";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -110,7 +111,8 @@ export function Architecture({
   const nodes = parseFlowSteps(steps);
 
   return (
-    <section className="border-line bg-bg-elevated/40 mt-10 rounded-lg border p-5">
+    <section className="border-line bg-bg-elevated/40 relative mt-10 rounded-[2px] border p-5">
+      <FrameMarks />
       <p className="font-mono text-[10px] tracking-[0.18em] text-text-faint uppercase">
         {site.projects.architectureLabel}
       </p>

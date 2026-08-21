@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CaptureFrame } from "@/components/projects/capture-frame";
+import { FrameMarks } from "@/components/ui/frame-marks";
 import { site } from "@/lib/site";
 import type { ProjectFrontmatter } from "@/types/content";
 
@@ -9,10 +10,11 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="border-line bg-bg-elevated/40 relative flex flex-col rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-[border-color,transform] duration-base ease-out-premium motion-safe:hover:-translate-y-1 hover:border-signal/30">
+    <article className="border-line bg-bg-elevated/40 relative flex flex-col rounded-[2px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-[border-color,transform] duration-base ease-out-premium motion-safe:hover:-translate-y-1 hover:border-signal/30">
+      <FrameMarks />
       <CaptureFrame
         locked={project.status === "private"}
-        className="aspect-[16/10] w-full rounded-none rounded-t-lg border-0 border-b"
+        className="aspect-[16/10] w-full rounded-none rounded-t-[2px] border-0 border-b"
       />
       <div className="flex flex-1 flex-col px-5 py-5">
         <p className="font-mono text-[11px] tracking-[0.16em] text-text-faint uppercase">
@@ -35,7 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.stack.map((item) => (
             <li
               key={item}
-              className="border-line rounded-full border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
+              className="border-line rounded-[2px] border px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-text-muted"
             >
               {item}
             </li>
